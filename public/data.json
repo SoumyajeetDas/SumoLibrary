@@ -1,0 +1,1286 @@
+{
+    "type": "FolderSyncDefinition",
+    "name": "FlightOps",
+    "description": "",
+    "children": [
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "AOC - Notifications API",
+            "search": {
+                "queryText": "appname = \"FO\\\\AOC-Notifications\"",
+                "defaultTimeRange": "-60m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "AircomWebSvcInvokerSvc- error search",
+            "search": {
+                "queryText": "(((((_sourceCategory=Application_Log _source=FO_Application_Log AND _collector=*APP*)))\nAND _sourcename = \"D:\\\\Airgroup\\\\Log\\\\FOGS\\\\AircomWebSvcInvokerSvc\\\\AircomWebSvcInvokerSvc.log\")\n)\nAND ERROR",
+                "defaultTimeRange": "03/05/2022 to 03/06/2022",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "for ACARS processing issues"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "AircraftPerformanceData - DNS resolution issue",
+            "search": {
+                "queryText": "(_collector=*3DNA*)\nAND \"The remote name could not be resolved\"\n| where appname = \"FO\\\\AircraftPerformanceData\"",
+                "defaultTimeRange": "07/02/2021 to 07/07/2021",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "AircraftPerformanceData errors resolving vendor"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "AircraftPerformanceData - Gateway timeout error",
+            "search": {
+                "queryText": "((((_collector=*3DNA*)))\nAND \"The remote server returned an error: (504) Gateway Timeout. \\\"\")\n| where appname = \"FO\\\\AircraftPerformanceData\"\n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "06/24/2021 to 07/08/2021",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Tracking connection to vendor error"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "AircraftPerformanceData - all logs",
+            "search": {
+                "queryText": "_collector=*3DNA*\n| where appname = \"FO\\\\AircraftPerformanceData\"",
+                "defaultTimeRange": "07/02/2021 8:54:00 PM to 07/02/2021 8:56:00 PM",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Logs for AircraftPerformanceData including errors"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "AircraftPerformanceData Errors",
+            "search": {
+                "queryText": "_collector=*3DNA* *aircraftperf*| where appname = \"FO\\\\AircraftPerformanceData\"| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Check AircraftPerformance used by Dynamic Source"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "All FltOps Application Logs",
+            "search": {
+                "queryText": "((_sourceCategory=Application_Log) AND  _collector=*3DNA*) OR\n((_sourceCategory=Application_Log _source=FO_Application_Log AND _collector=*3DNW*) OR\n((_sourceCategory=Application_Log _source=FO_Application_Log AND _collector=*TWS*) OR\n((_sourceCategory=Application_Log _source=FO_Application_Log AND _collector=*APP*))))\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"\n\n",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "DNA Flight Ops - errors",
+            "search": {
+                "queryText": "(_sourceCategory=Application_Log _source=FO_Application_Log ) AND _collector=*3DNA*\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\" \n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "Using the application log as source and DNA collector - ERRORS"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "DNA IIS Logs for Flight",
+            "search": {
+                "queryText": "_sourceCategory=IIS_Log | where uri_stem matches (\"/Flight*\") ",
+                "defaultTimeRange": "-3h",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "Need to figure out Web Service id to get better info"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "DNW FltOps Application Logs",
+            "search": {
+                "queryText": "_sourceCategory=Application_Log _source=FO_Application_Log _collector=*3DNW*\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\" ",
+                "defaultTimeRange": "-24h",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "DNW servers for FltOps logs"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "DispatchAircraftPerformance",
+            "search": {
+                "queryText": "_source=FO_Application_Log\n| where appname = \"FO\\\\LocationMapsWS\" AND errorlevel = \"ERROR\"\n|count _sourceHost |top 1_sourceHost by _count",
+                "defaultTimeRange": "05/20/2020 to 05/21/2020",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": {
+                "cronExpression": "17 * * * * ? *",
+                "displayableTimeRange": "-5m",
+                "parseableTimeRange": {
+                    "type": "BeginBoundedTimeRange",
+                    "from": {
+                        "type": "RelativeTimeRangeBoundary",
+                        "relativeTime": "-5m"
+                    },
+                    "to": null
+                },
+                "timeZone": "America/Los_Angeles",
+                "threshold": {
+                    "thresholdType": "group",
+                    "operator": "ge",
+                    "count": 1
+                },
+                "notification": {
+                    "taskType": "EmailSearchNotificationSyncDefinition",
+                    "toList": [
+                        "sumo_logs_error_fe1ef609c527622526052b054e27f2e7@mealarmsone.com",
+                        "ITS.Production.Operations@alaskaair.com"
+                    ],
+                    "subjectTemplate": "Search Alert: {{AlertCondition}} found for {{SearchName}}",
+                    "includeQuery": true,
+                    "includeResultSet": true,
+                    "includeHistogram": true,
+                    "includeCsvAttachment": false
+                },
+                "scheduleType": "RealTime",
+                "muteErrorEmails": false,
+                "parameters": []
+            },
+            "description": "DispatchAircraftPerformance - “Reset IIS on the server under the FltOps AppPool.”"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "DispatchAircraftPerformance - All logs",
+            "search": {
+                "queryText": "((((_source=FO_Application_Log))))\n| where appname = \"FO\\\\DispatchAircraftPerformance\"",
+                "defaultTimeRange": "-60m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "DispatchAircraftperformance - all logs including errors"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "DynamicSource-DispatchAircraft  (app collector) Errors",
+            "search": {
+                "queryText": "((((_source=FO_Application_Log))))\n| where appname = \"FO\\\\DispatchAircraftPerformance\"\n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "DispatchAircraft Error tracking"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "DynamicSource-DispatchAircraft Errors -3DNA collector",
+            "search": {
+                "queryText": "(_collector=*3DNA*)\n| where appname = \"FO\\\\DispatchAircraftPerformance\"\n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Errors for DispatchAircraft- Dynamic source Using 3DNA collector"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FLEX- FlexAggregatorWS",
+            "search": {
+                "queryText": "_source=FO_Application_Log\n| where appName = \"FO\\\\FlexAggregatorWs\"\n",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FLEX- GateCapacityWS",
+            "search": {
+                "queryText": "_source=FO_Application_Log\n| where appName = \"FO\\\\GateCapacityWs\"\n",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FLEX-FlexUI",
+            "search": {
+                "queryText": "_source=FO_Application_Log\n| where appName = \"FO\\\\FlexUI\"\n",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FLEX-TaxiTimeWS",
+            "search": {
+                "queryText": "_source=FO_Application_Log\n| where appName = \"FO\\\\TaxiTimeWS\"\n",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FO AcarsHistorySvc",
+            "search": {
+                "queryText": "((_sourceCategory=Application_Log _source=FO_Application_Log ) AND _collector=*3DNA*)\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\" \n| where appname = \"FO\\\\AcarsHistorySvc\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "Logs specific to this service"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FO FlifoTimes",
+            "search": {
+                "queryText": "((_sourceCategory=Application_Log _source=FO_Application_Log ) AND _collector=*3DNA*)\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\" \n| where errorlevel = \"ERROR\"\n| where appname = \"FO\\\\FlifoTimes\"",
+                "defaultTimeRange": "-60m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "DNA Search for application FlifoTimes"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FO FlightPlanSvc  errors",
+            "search": {
+                "queryText": "(((_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*)))\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"\n| where errorlevel = \"ERROR\"\n| where appname = \"FO\\\\FlightPlanSvc\"",
+                "defaultTimeRange": "10/21/2021 12:00:00 AM to 10/21/2021 12:57:46 PM",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FO FlightViewInformation",
+            "search": {
+                "queryText": "((_sourceCategory=Application_Log _source=FO_Application_Log ) AND _collector=*3DNA*)\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\" \n| where errorlevel = \"ERROR\"\n| where appname = \"FO\\\\FlightViewInformation\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "FlightViewInformation Errors"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FO PassengerCounts  errors",
+            "search": {
+                "queryText": "(((_sourceCategory=Application_Log _source=FO_Application_Log ) AND _collector=*3DNA*))\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\" \n| where errorlevel = \"ERROR\"\n| where appname = \"FO\\\\PassengerCounts\"",
+                "defaultTimeRange": "-60m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "Flight Ops Passenger Counts WS errors"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FO SabreFredWS",
+            "search": {
+                "queryText": "((_sourceCategory=Application_Log _source=FO_Application_Log ) AND _collector=*3DNA*)\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\" \n| where errorlevel = \"ERROR\"\n| where appname = \"FO\\\\SabreFredWS\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "FltOps Feeds to Sabre using this service after DB and Tibco updates"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FOGS Application Logs",
+            "search": {
+                "queryText": "((_sourceCategory=Application_Log _source=FO_Application_Log AND _collector=*APP*))\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"\n",
+                "defaultTimeRange": "today",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "FOGS application logs"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FOGSPassengerCounts Errors",
+            "search": {
+                "queryText": "(((_sourceCategory=Application_Log _source=FO_Application_Log ) AND _collector=*3DNA*)\nAND _sourcename = \"D:\\\\Airgroup\\\\Log\\\\FOGS\\\\PassengerCounts\\\\AppErr2022-04-22.log\")\nAND \"QX Flight: 2053 Origin: PDX Destination: SEA\"\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\" \n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "04/22/2022 to 04/23/2022",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "FltOps PassengerCounts web service errors"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FlifoTimes WS",
+            "search": {
+                "queryText": "(((((_sourceCategory=Application_Log _source=FO_Application_Log ) AND _collector=*3DNA*)\nAND _sourcename = \"D:\\\\Airgroup\\\\Log\\\\FOGS\\\\FlifoTimes\\\\20220302.log\"))\nAND \"UpdateOffTimes=UPDATE\")\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\" ",
+                "defaultTimeRange": "03/02/2022 5:00:00 AM to 03/02/2022 6:00:00 AM",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "This one will show info"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FlightEventPublisherSvc",
+            "search": {
+                "queryText": "(_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*)\nAND _sourcename = \"D:\\\\Airgroup\\\\Log\\\\FOGS\\\\FlightEventPublisherSvc\\\\FlightEventsPublisherSvc.log\"\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "Windows logs for FlightEventPublisherSvc"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FlightListDetailWs (DispatchFlightListDetailWs)",
+            "search": {
+                "queryText": "(_sourceCategory=Application_Log _collector=*3DNA* AND _sourceName=*DispatchFlightListDetailWs* AND error)",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Get errors for Web service"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FlightPlanSvc - both log search",
+            "search": {
+                "queryText": "(((_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*)))\nAND _sourcename = \"D:\\\\Airgroup\\\\Log\\\\FO\\\\FlightPlanSvc\\\\AppErr2022-01-27.log\"\nOR _sourcename = \"D:\\\\Airgroup\\\\Log\\\\FO\\\\FlightPlanSvc\\\\FlightPlanSvc.log\"\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"\n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "01/27/2022 12:00:00 AM to 01/27/2022 8:45:58 AM",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "Search includes AppError log and regular log"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FlightPlanSvc - invalid text char in Notams",
+            "search": {
+                "queryText": "((((_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*))))\nAND \"[Informix][Informix ODBC Driver]Inexact character conversion during translation..\"\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"\n| where errorlevel = \"ERROR\"\n| where appname = \"FO\\\\FlightPlanSvc\"",
+                "defaultTimeRange": "Last 60 Minutes",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "Only fix is for Dispatch to use Dave Higgins tool to correct"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FlightPlanSvc -Jeppesen Conn Exceptions- with FltInfo",
+            "search": {
+                "queryText": "(((((_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*)))\nAND _sourcename = \"D:\\\\Airgroup\\\\Log\\\\FO\\\\FlightPlanSvc\\\\AppErr2022-02-25.log\"\nAND \"JeppesenConnectionException with Jep FP for flt\"))\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"",
+                "defaultTimeRange": "Today",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Looks for exceptions getting FlightPlan but includes flt info for exception"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FlightPlanSvc AppErr2021 06 30 log  for GetXMLRequest issues",
+            "search": {
+                "queryText": "(((_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*))\nAND _sourcename = \"D:\\\\Airgroup\\\\Log\\\\FO\\\\FlightPlanSvc\\\\AppErr2021-06-30.log\")\nAND \"Error while executing GetXmlRequest\"\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"\n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "06/30/2021 4:14:49 AM to 06/30/2021 5:29:49 AM",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "Get error while executing GetXmlRequest - check log date"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FlightPlanSvc Windows service ALL logs",
+            "search": {
+                "queryText": "((_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*))\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"\n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "Today",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "FlightPlanSvc windows service errors - UPDATE LOG DATE"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FlightPlanSvc Windows service error logs",
+            "search": {
+                "queryText": "((_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*))\nAND _sourcename = \"D:\\\\Airgroup\\\\Log\\\\FO\\\\FlightPlanSvc\\\\AppErr2021-06-30.log\"\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"\n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "06/30/2021 4:14:49 AM to 06/30/2021 7:29:49 AM",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "FlightPlanSvc windows service errors - UPDATE LOG DATE"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FlightPlanSvc Windows service error logs -Jeppesen websvc connection",
+            "search": {
+                "queryText": "((((_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*))\nAND \"Jeppesen websvc connection\"\nAND \" The operation has timed out\"))\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"\n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "Last 24 Hours",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "FlightPlanSvc windows service errors - UPDATE LOG DATE"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FlightPlanSvc- Jeppesen websvc connection- can't create SSL/TLS channel",
+            "search": {
+                "queryText": "(((_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*))\nAND _sourcename = \"D:\\\\Airgroup\\\\Log\\\\FO\\\\FlightPlanSvc\\\\AppErr2021-10-08.log\")\nAND \"Jeppesen websvc connection [https://asflightplan.alaskaair.com/jetplan/services/Plan] retry [1] of [20] The request was aborted: Could not create SSL/TLS secure channel\"\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"\n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "10/08/2021 to 10/09/2021",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Connection error- appears fairly normal for a few a day but making query avail"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FlightPlanSvc-CityPair error",
+            "search": {
+                "queryText": "(((((((((_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*)))))))))\nAND \"No citypair information found for orig\"\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"\n| where appname = \"FO\\\\FlightPlanSvc\"\n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "Last 60 Minutes",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Find invalid city pair error returned for FlightPlanSvc"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FlightPlanningWS",
+            "search": {
+                "queryText": "(_sourceCategory=Application_Log _collector=*3DNA* AND _sourceName=*FlightPlanningWS* AND error)",
+                "defaultTimeRange": "-60m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "IIS Errors for Dynamic Source",
+            "search": {
+                "queryText": "_sourceCategory=IIS_Log | where uri_stem = \"/*Perf*\" AND _collector=\"*3DNA*\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "JetPlan issue - PERFORMANCE  SERVER ERRORS in FlightPlanSvc( D Airgroup Log FO FlightPlanSvc FlightPlanSvc log )- no server",
+            "search": {
+                "queryText": "(_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*)\nAND _sourcename = \"D:\\\\Airgroup\\\\Log\\\\FO\\\\FlightPlanSvc\\\\FlightPlanSvc.log\"\nAND \"reason PERFORMANCE SERVER ERROR\"\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"",
+                "defaultTimeRange": "-6h",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "Performance Server Error - may need JBoss services restarted (ref MI 5117)"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "JetStreamSvc Windows Service",
+            "search": {
+                "queryText": "(((((((_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*))))))\nAND _sourcehost = \"seavvfogsapp2\")\nAND _sourcename = \"D:\\\\Airgroup\\\\LOG\\\\FOGS\\\\JetStreamSvc\\\\JetStreamSvc_1208.log\"\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"",
+                "defaultTimeRange": "12/08/2021 5:00:00 PM to 12/08/2021 11:00:00 PM",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Source Name( D Airgroup LOG FOGS JetStreamSvc JetStreamSvc_1208 log )"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "JetStreamWebService",
+            "search": {
+                "queryText": "(_sourceCategory=Application_Log _source=FO_Application_Log ) AND _collector=*3DNA*\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\" \n| where appname = \"FO*\\\\JetstreamWebService\"\n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Search for Errors for jetStreamWebService"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "LocationMaps API",
+            "search": {
+                "queryText": "_source=FO_Application_Log\n| where appname = \"FO\\\\LocationMapsWS\" AND errorlevel = \"ERROR\"\n",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Used by WAM, Pilot Briefing, Aerodata to name a few"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "LocationMaps API Errors",
+            "search": {
+                "queryText": "_source=FO_Application_Log\n| where appname = \"FO\\\\LocationMapsWS\" AND errorlevel = \"ERROR\"\n",
+                "defaultTimeRange": "-3d",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Only Errors on LocationMaps API"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "LocationMapsAPI - count by server",
+            "search": {
+                "queryText": "_source=FO_Application_Log\n| where appname = \"FO\\\\LocationMapsWS\" AND errorlevel = \"ERROR\"\n|count _sourceHost |top 1_sourceHost by _count\n",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Error Count By Top server"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "LocationMapsAPI Errors CountByServer",
+            "search": {
+                "queryText": "_source=FO_Application_Log\n| where appname = \"FO\\\\LocationMapsWS\" AND errorlevel = \"ERROR\"\n|count _sourceHost |top 1_sourceHost by _count\n",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Error Count By Top server"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "LocationMapsWS",
+            "search": {
+                "queryText": "_source=FO_Application_Log\n| where appname = \"FO\\\\LocationMapsWS\" AND errorlevel = \"ERROR\"\n|count _sourceHost |top 1_sourceHost by _count",
+                "defaultTimeRange": "-5m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": {
+                "cronExpression": "17 * * * * ? *",
+                "displayableTimeRange": "-5m",
+                "parseableTimeRange": {
+                    "type": "BeginBoundedTimeRange",
+                    "from": {
+                        "type": "RelativeTimeRangeBoundary",
+                        "relativeTime": "-5m"
+                    },
+                    "to": null
+                },
+                "timeZone": "America/Los_Angeles",
+                "threshold": {
+                    "thresholdType": "group",
+                    "operator": "ge",
+                    "count": 1
+                },
+                "notification": {
+                    "taskType": "EmailSearchNotificationSyncDefinition",
+                    "toList": [
+                        "sumo_logs_error_fe1ef609c527622526052b054e27f2e7@mealarmsone.com",
+                        "ITS.Production.Operations@alaskaair.com"
+                    ],
+                    "subjectTemplate": "Search Alert: {{AlertCondition}} found for {{SearchName}}",
+                    "includeQuery": true,
+                    "includeResultSet": true,
+                    "includeHistogram": true,
+                    "includeCsvAttachment": false
+                },
+                "scheduleType": "RealTime",
+                "muteErrorEmails": false,
+                "parameters": []
+            },
+            "description": "LocationMapsWS - “ Open Sev 3 ticket if error count of server is greater than 10 and reset IIS on the DNA 2012 servers for FltOps”"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "M&E AircraftService web service",
+            "search": {
+                "queryText": "(_sourceCategory=Application_Log _collector=*3DNA* AND _sourceName=*aircraftservice* AND error)\n",
+                "defaultTimeRange": "03/19/2021 12:00:00 PM to 03/20/2021",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "Autoland Issues for flight release check for M&E web service"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Mtx Events MEL",
+            "search": {
+                "queryText": "(_sourceCategory=Application_Log _collector=*3DNA* AND _sourceName=*Mel* AND error)\n",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "PassengerCounts FltOps service",
+            "search": {
+                "queryText": "(((_sourceCategory=Application_Log _source=FO_Application_Log ) AND _collector=*3DNA*)\nAND _sourcename = \"D:\\\\Airgroup\\\\Log\\\\FOGS\\\\PassengerCounts\\\\20220422.log\")\nAND \"QX Flight: 2053 Origin: PDX Destination: SEA\"\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\" ",
+                "defaultTimeRange": "04/22/2022 to 04/23/2022",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "regular log search"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "PaxListAndCounts (Middleware WS)",
+            "search": {
+                "queryText": "((_sourceName=*PaxListAndCounts*))\nAND \"Flight=2053\"\n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "04/22/2022 to 04/23/2022",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Errors for PaxListAndCounts"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "PaxListAndCounts (Middleware service)",
+            "search": {
+                "queryText": "_sourceName=*PaxListAndCounts* ",
+                "defaultTimeRange": "-3d",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "all data - variation on search text"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "PaxListAndCounts - for flight",
+            "search": {
+                "queryText": "paxlistandcounts info 3434 ",
+                "defaultTimeRange": "-3d",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Middleware service search by flight"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "PaxMonitorBatchJob",
+            "search": {
+                "queryText": "TUKVVTWS12 PaxMonitorBatch INFO",
+                "defaultTimeRange": "today",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "TWS Pax Monitor Batch Job"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "PilotBriefingAPI BriefingPacket Search",
+            "search": {
+                "queryText": "((_source=FO_WebServices_Log OR _source=FO_Application_Log))\n| parse \"* * * * * [*] \\\"*/*/*/* - *\\\"\" as (date, time, server, appname, errorlevel, threadid, airline, flightNumber, flightDate, orig, message) \n| where appname = \"FO\\\\PilotBriefingAPI\" \n| where flightDate = \"2021-11-26\" \n| where airline = \"AS\" \n| where flightNumber = 291\n",
+                "defaultTimeRange": "11/26/2021 to 11/27/2021",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "PilotBriefingAPI BriefingPacket Search - no company document error",
+            "search": {
+                "queryText": "((_source=FO_WebServices_Log OR _source=FO_Application_Log))\nAND \"No company document exists at \"\n| parse \"* * * * * [*] \\\"*/*/*/* - *\\\"\" as (date, time, server, appname, errorlevel, threadid, airline, flightNumber, flightDate, orig, message) \n| where appname = \"FO\\\\PilotBriefingAPI\" \n| where flightDate = \"2021-11-03\" \n| where airline = \"AS\" \n| where flightNumber = 217\n",
+                "defaultTimeRange": "11/03/2021 2:00:00 PM to 11/03/2021 5:00:00 PM",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "PilotBriefingSvc - Errors",
+            "search": {
+                "queryText": "(((((_source=FO_WebServices_Log OR _source=FO_Application_Log)))))\n| where appname = \"FO\\\\PilotBriefingAPI\" \n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "PilotBriefing Web Service errors only"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "S4A -Acars Outbound",
+            "search": {
+                "queryText": "((_sourcecategory = \"Tibco_BW_Audit\"))\nAND \"SENT-TO-ACARS\"\n|parse  \"BW.*-\" as appname| where appname = \"S4A_AcarsOutPublisher\"  |parse regex \"(?<f1>\\S+\\s+){9}(?<f2>\\S.*?\\/){5}(?<EventType>\\S.*?)\\/(?<f3>\\S+)\\s+\"|timeslice ",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "All logs for S4A to ACARS outbound"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "S4A Skipped Messages",
+            "search": {
+                "queryText": "_sourcecategory = \"Tibco_BW_Audit\" S4A_AcarsOutPublisher AS/125/2022-01-21 \"SKIPPED-ACARS\"",
+                "defaultTimeRange": "01/21/2022 to 01/23/2022",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Tibco logs for S4A messages not sent on to ACARS"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "SabreFrd /Tibco service",
+            "search": {
+                "queryText": "( _sourceCategory= Tibco_BW_Audit FO_FlightInformationSubscriber_SabreFRD)\n",
+                "defaultTimeRange": "Last 15 Minutes",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "not FltOps owned"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "SabreFrd /Tibco service / flight number",
+            "search": {
+                "queryText": "( _sourceCategory= Tibco_BW_Audit FO_FlightInformationSubscriber_SabreFRD)\nAND \"AS/181\"",
+                "defaultTimeRange": "Last 60 Minutes",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "not FltOps owned"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Search",
+            "search": {
+                "queryText": "((((_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*))\nAND _sourcename = \"D:\\\\Airgroup\\\\Log\\\\FO\\\\FlightPlanSvc\\\\AppErr2021-10-08.log\"))\nAND \"Jeppesen websvc connection [https://asflightplan.alaskaair.com/jetplan/services/Plan] retry [*] of [20] The operation has timed out \"\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"\n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "10/11/2021 7:40:28 AM to 10/11/2021 7:55:28 AM",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "TWS Logs for FltOps Application",
+            "search": {
+                "queryText": "_sourceCategory=Application_Log _source=FO_Application_Log _collector=*TWS*\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\" ",
+                "defaultTimeRange": "-60m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "FltOps Application logs for TWS apps"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Tibco Audit for Closeouts",
+            "search": {
+                "queryText": "(_sourceCategory=Tibco_BW_Audit QX/2052/2022-04-23 LOADCLOSEOUT)\nAND \"SENT-TO-ACARS \"",
+                "defaultTimeRange": "04/22/2022 9:29:06 AM to 04/25/2022 9:29:06 AM",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Change the flight and date range to get all closeouts including skipped or errors"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Tibco Audits for Cargo Sent to S4A",
+            "search": {
+                "queryText": "_sourceCategory=Tibco_BW_Audit AS/7098/2021-09-27/YAK/SEA Cargo SENT-TO-SMARTLOAD",
+                "defaultTimeRange": "09/27/2021 to 09/29/2021",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Tibco Sent To Acars Logs",
+            "search": {
+                "queryText": "_sourcecategory = \"Tibco_BW_Audit\" S4A_AcarsOutPublisher QX/2388/2022-04-20/SEA/RDM/LoadCloseout/N403QX\"SENT-TO-ACARS\"",
+                "defaultTimeRange": "this month",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Tibco sending messages to Acars via MQ logging"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Tibco Skipped sending to Aircom for S4A",
+            "search": {
+                "queryText": "_sourcecategory = \"Tibco_BW_Audit\" S4A_AcarsOutPublisher QX/2388/2022-04-20 \"SKIPPED-ACARS\"",
+                "defaultTimeRange": "This Month",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Tibco to S4A (Smartload)",
+            "search": {
+                "queryText": "_sourceCategory=Tibco_BW_Audit  SENT-TO-SMARTLOAD  QX/2053/2022-04-22/*",
+                "defaultTimeRange": "this month",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Must be for 60 minutes ? per sarada"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Tibco to S4A - crew feeder only",
+            "search": {
+                "queryText": "_sourceCategory=Tibco_BW_Audit  SENT-TO-SMARTLOAD  AS/466/2020-10-28/*   BW.FO_CrewSubscriber-S4ACrewFeeder-2\n",
+                "defaultTimeRange": "-60m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "TibcoGenericEvents WS Errors",
+            "search": {
+                "queryText": "(_sourceCategory=Application_Log _collector=*3DNA* AND _sourceName=*TibcoGenericEvents* AND error)",
+                "defaultTimeRange": "05/29/2021 to 05/30/2021",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Get errors for Web service"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "TibcoGenericEvents WS Errors- CAN'T CONNECT TO FltOps",
+            "search": {
+                "queryText": "((_sourceCategory=Application_Log _collector=*3DNA* AND _sourceName=*TibcoGenericEvents* AND error))\nAND \"[Informix]Cannot connect to database server (fltops.alaskaair.com).\"",
+                "defaultTimeRange": "-7d",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "TibcoGenericEventsWS when can't connect to FltOps"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "TibcoGenericEvents WS Errors- CAN'T CONNECT TO FltOps DB",
+            "search": {
+                "queryText": "((_sourceCategory=Application_Log _collector=*3DNA* AND _sourceName=*TibcoGenericEvents* AND error))\nAND \"[Informix]Cannot connect to database server (fltops.alaskaair.com).\"",
+                "defaultTimeRange": "06/25/2021 to 06/27/2021",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "TibcoGenericEventsWS when can't connect to FltOps"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Tukvvapp22 MQ errors",
+            "search": {
+                "queryText": "(((_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*)\nAND _sourcehost = \"tukvvapp22\"))\nAND \" StackTrace:    at IBM.WMQ.MQQueueManager.Connect(String queueManagerName)\"\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"\n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "-7d",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "Tracking MQ errors seen from Tukvvapp22 (same for seavvapp22-change name)"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "WSIScheduleFeedService",
+            "search": {
+                "queryText": "_collector=*app* | where _sourceName matches \"*FOGS\\\\WSIScheduleFeedService*\"",
+                "defaultTimeRange": "-24h",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Weather API errors - on prem",
+            "search": {
+                "queryText": "(_source=FO_Application_Log and _sourceCategory=Application_Log)\n| where appname = \"FO\\\\Weather\"\n| where errorlevel = \"Error\"",
+                "defaultTimeRange": "04/11/2022 12:00:00 AM to 04/12/2022 12:00:00 AM",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Weather API errors on DNA farm"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Windows Services Logs for FO Apps",
+            "search": {
+                "queryText": "_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "Application logs for FO Windows Services - Need to add for FOGS"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Windows Services Logs for FltOp Apps",
+            "search": {
+                "queryText": "_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "Manual"
+            },
+            "searchSchedule": null,
+            "description": "Application logs for FltOps Windows Services"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "WxD Health Check",
+            "search": {
+                "queryText": "_sourceCategory=prod/jetplan/wxd\n| parse \"Unable to open*\" as wxd_error\n//| parse \"NONE*\" as wxd_error",
+                "defaultTimeRange": "Today",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "WxD Health Check - TAF Times Between Servers",
+            "search": {
+                "queryText": "_sourceCategory=prod/jetplan/wxd\n//| parse \"Unable to open*\" as wxd_error\n| parse \"KSEA*Z\" as TAF_TIME\n| parse \"TAF*\" as taf",
+                "defaultTimeRange": "Today",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Compare TAF times between the IGQ and TUK production WXD servers. Times should match for TAFs requested around the same time"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "zz_Delwins search for LocationMaps",
+            "search": {
+                "queryText": "_source=FO_Application_Log\n| where appname = \"FO\\\\LocationMapsWS\" AND errorlevel = \"ERROR\"\n",
+                "defaultTimeRange": "-3d",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        }
+    ]
+}
