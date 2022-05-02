@@ -1,0 +1,307 @@
+{
+    "type": "FolderSyncDefinition",
+    "name": "SD",
+    "description": "",
+    "children": [
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "AircomeWebSvcInvokerSvc",
+            "search": {
+                "queryText": "_sourceHost=*vvapp22 and \"AircomWebSvcInvokerSvc\" and (*error* or *fail*)",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Aircraft Performance Data for Dynamic Source in Boeing Flights",
+            "search": {
+                "queryText": "_collector=*3DNA* *aircraftperf*| where appname = \"FO\\\\AircraftPerformanceData\"| where errorlevel = \"ERROR\" ",
+                "defaultTimeRange": "This Month",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "CDMFeederSvc Error",
+            "search": {
+                "queryText": "_sourceHost=tukvvapp22  _sourceName = *CDMFeederSvc* and (error or *fail*)",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Error In FlightPlanSvc",
+            "search": {
+                "queryText": "_sourceHost=tukvvapp22 and \"FlightPlanSvc\" and \"Error\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FlightPlan Svc Start",
+            "search": {
+                "queryText": "_sourceHost=seavvapp22 \"FlightPlanSvc\" and \"Starting FlightPlanSvc\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FlightPlanSvc DB Updating",
+            "search": {
+                "queryText": "_sourceHost=*vvapp22 and \"DB record SUCCEEDED\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Jep Down",
+            "search": {
+                "queryText": "_sourceHost=*vvapp22 and \"Jeppesen websvc connection\"",
+                "defaultTimeRange": "Last 7 Days",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "JetStreamSvc Error",
+            "search": {
+                "queryText": "_sourceHost=*vvfogsapp2 _sourceName=*JetStreamSvc* and (*error* or *fail*)",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Jetplan WxD Service Health - SEA TAF Returns NONE",
+            "search": {
+                "queryText": "_sourceCategory=prod/jetplan/wxd\n//| parse \"Unable to open*\" as wxd_error\n| parse \"NONE*\" as wxd_error\n| parse \"TAF*\" as taf_type\n| parse \"SEA*\" as sea",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "This alert indicates the WxD service is not functioning correctly according to the log entry showing the SEA TAF request returns NONE which according \nto Jeppesen only happens when the server is unhealthy. Please confirm with Dispatch Management."
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Jetplan WxD Service Health - Unable to Connect to DB",
+            "search": {
+                "queryText": "_sourceCategory=prod/jetplan/wxd\n| parse \"Unable to open*\" as wxd_error\n//| parse \"NONE*\" as wxd_error",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "This alert indicates the WxD service is not functioning correctly according to the log entry \"Unable to connect\". Please confirm with Dispatch Management \nor the chief dispatcher the ability to run flight plans normally."
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "LocationMapWS Error",
+            "search": {
+                "queryText": "_source=FO_Application_Log\n| where appname = \"FO\\\\LocationMapsWS\" AND errorlevel = \"ERROR\"\n|count _sourceHost |top 1_sourceHost by _count\n",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "MELWs Error",
+            "search": {
+                "queryText": "_collector=*3DNA* and \"MelWs\" and \"Error\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "PilotBriefing WS for AS",
+            "search": {
+                "queryText": "_sourceHost=seav3dna09 _sourceName = *PilotBriefing* and \"AS/flights/206/briefingpackets?\"",
+                "defaultTimeRange": "Last 30 Days",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Briefing Packets for AS"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "PilotBriefing WS for QX",
+            "search": {
+                "queryText": "_sourceHost=seav3dna09 _sourceName = *PilotBriefing* and \"QX/flights/2179/briefingpackets?\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": "Briefing Packets for QX"
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "PilotBriefingCCW Error",
+            "search": {
+                "queryText": "_sourceHost=*vvfogsapp2 _sourceName=*PilotBriefingCCW* and (*error* or *fail*)",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Search DispatchAircraftPerformance Error",
+            "search": {
+                "queryText": "(_collector=*3DNA*)\n| where appname = \"FO\\\\DispatchAircraftPerformance\"\n| where errorlevel = \"ERROR\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "The Maker Error",
+            "search": {
+                "queryText": "_sourceHost=*vvfogsapp2 _sourceName=*TheMaker* and (*error* or *fail*)",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "UpdServer Error",
+            "search": {
+                "queryText": "_sourceHost=*vvfogsapp2 and _sourceName = *UpdServer* and (*error* or *fail*)",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Weather 504 Gateway Timeout for API",
+            "search": {
+                "queryText": "_sourceHost=*v3dna13 _sourceName=*WeatherAPI* and (*error*  and *exception*) ",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "Weather API 504 Gateway Timeout",
+            "search": {
+                "queryText": "_sourceHost=*v3dna13 _sourceName=*WeatherAPI* and (*error*  and *exception*) ",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        }
+    ]
+}

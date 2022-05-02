@@ -3,6 +3,7 @@ import './App.css';
 import Content from './component/Content';
 import Navbar from './component/Navbar';
 import React, { useState } from 'react'
+import Library from './component/Library.js'
 
 
 function App() {
@@ -13,19 +14,23 @@ function App() {
   const [navbar, setNavbar] = useState({backgroundImage: "linear-gradient(to top right, white  , rgba(132, 139, 200, 0.18))", position:"sticky", top:"0px", zIndex:"2"})
   const [toggling, setToggling] = useState("light");
 
-  const [navBar, displayNav] = useState(true);
-  const [content, displayContent] = useState(true);
+  const [lib, setLib] = useState(true);
+  const [content, displayContent] = useState(false);
+  const [togglingButton, setTogglingButton]=useState("External")
 
   function Display(){
     
-    if(navBar===true){
-      displayNav(false);
-      displayContent(false);
+    if(lib===true){
+      setLib(false);
+      displayContent(true);
+      setTogglingButton("My Library");
       
     }
     else{
-      displayNav(true);
-      displayContent(true);
+      
+      setLib(true);
+      displayContent(false);
+      setTogglingButton("External");
     }
   }
 
@@ -52,16 +57,19 @@ function App() {
       setNavbar({backgroundImage: "linear-gradient(to top right, black, black)", position:"sticky", top:"0px", zIndex:"2"});
       setToggling("dark");
 
+
     }
   }
 
 
   return (
     <>
-      {navBar&&<Navbar toggleStyle={toggleStyle} lightToggle={lightToggle} darkToggle={darkToggle} toggle={toggle} navbar={navbar} toggling={toggling}/>}
+      <Navbar toggleStyle={toggleStyle} lightToggle={lightToggle} darkToggle={darkToggle} toggle={toggle} navbar={navbar} toggling={toggling}/>
       {content&&<Content  cardColor={cardColor}/>}
 
-      <button className="btn btn-primary" style={{position:"fixed", bottom:"10px", left:"15px", zIndex:"2"}} onClick={Display}>My Library</button>
+      {lib&&<Library cardColor={cardColor} />}
+
+      <button className="btn btn-primary" style={{position:"fixed", bottom:"10px", left:"15px", zIndex:"2"}} onClick={Display}>{togglingButton}</button>
     </>
 
   );
