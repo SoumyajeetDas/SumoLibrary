@@ -24,11 +24,16 @@ export default class Content extends Component {
 
   }
 
-  copyQuery(id){
-    console.log(document.getElementById(id).innerText);
-    navigator.clipboard.writeText(document.getElementById(id).innerText); // Copying the queries.
+  async copyQuery(id1, id2){
+    console.log(document.getElementById(id1).innerText);
+    await navigator.clipboard.writeText(document.getElementById(id1).innerText)
+ 
+    document.getElementById(id2).innerText="Copied";
 
-    alert(`Copied --> ${document.getElementById(id).innerText}`)
+    setTimeout(() =>{
+      document.getElementById(id2).innerText="Copy Query";
+    },2000);
+    
   }
 
   render() {

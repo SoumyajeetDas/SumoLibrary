@@ -17,7 +17,7 @@ function App() {
   const [content, displayContent] = useState(true);
 
   function Display(){
-    console.log("Dispaly")
+    
     if(navBar===true){
       displayNav(false);
       displayContent(false);
