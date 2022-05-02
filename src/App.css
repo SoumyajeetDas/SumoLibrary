@@ -75,10 +75,17 @@ body {
 .footer{
   display:flex;
   justify-content:space-between;
+  flex-wrap: wrap;
 }
 
 #modes{
   display:flex;
   justify-content: space-around;
   align-items:center;
+}
+
+#copyButton{
+  display:flex;
+  justify-content:space-around;
+  
 }

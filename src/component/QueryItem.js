@@ -11,9 +11,12 @@ export default function queryItem(props) {
                     <h5 className="text-center mb-4 textquery" id={props.data.search.queryText}>{(props.data.search.queryText)}</h5>
                     <div className="footer">
                         <p className="card-text description"><strong>Requirements:</strong> {props.data.description === "" ? 'Unknown' : props.data.description}</p>
-                        <button class="btn btn-sm btn-success rounded-pill" onClick={() => props.copyQuery(props.data.search.queryText)}><span class="material-symbols-rounded">
+                        <button class="btn btn-sm btn-success rounded-pill" id="copyButton" onClick={() => props.copyQuery(props.data.search.queryText)}>
+                            <span class="material-symbols-rounded">
                             content_copy
-                        </span>Copy Query</button>
+                        </span>
+                        <p class="m-0">Copy Query</p>
+                        </button>
                     </div>
 
                 </div>
