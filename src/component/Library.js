@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ContentLibrary from './ContentLibrary.js'
+import QueryItem from './QueryItem.js'
 export default class Content extends Component {
 
     constructor() {
@@ -45,7 +45,7 @@ export default class Content extends Component {
                     <div className="row"  >
                         {this.state.query.map((data) =>
                             <div key={data.name} className="col-12 my-5">
-                                <ContentLibrary data={data} copyQuery={this.copyQuery} buttonValue={this.state.value} cardColor={this.props.cardColor} />
+                                <QueryItem data={data} copyQuery={this.copyQuery} buttonValue={this.state.value} cardColor={this.props.cardColor} />
                             </div>
                         )}
 
