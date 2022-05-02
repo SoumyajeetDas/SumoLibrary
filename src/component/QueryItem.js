@@ -8,7 +8,7 @@ export default function queryItem(props) {
 
                 <div className="card-body" style={props.cardColor}>
                     <h1 id="card-title" className="card-title text-center mb-4">{props.data.name}</h1>
-                    <h5 className="text-center mb-4 textquery" id={props.data.search.queryText}>{(props.data.search.queryText).replaceAll('\\','')}</h5>
+                    <h5 className="text-center mb-4 textquery" id={props.data.search.queryText}>{(props.data.search.queryText)}</h5>
                     <div className="footer">
                         <p className="card-text description"><strong>Requirements:</strong> {props.data.description === "" ? 'Unknown' : props.data.description}</p>
                         <button class="btn btn-sm btn-success rounded-pill" onClick={() => props.copyQuery(props.data.search.queryText)}><span class="material-symbols-rounded">
