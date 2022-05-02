@@ -7,8 +7,8 @@ import React, { useState } from 'react'
 
 function App() {
   const [toggleStyle, setToggleStyle] = useState({backgroundColor:"white"});
-  const [lightToggle, setLightToggle] = useState({backgroundColor:"#7388ec"});
-  const [darkToggle, setDarkToggle] = useState({backgroundColor:"white"});
+  const [lightToggle, setLightToggle] = useState({backgroundColor:"#7388ec", cursor:"pointer"});
+  const [darkToggle, setDarkToggle] = useState({backgroundColor:"white", cursor:"pointer"});
   const [cardColor, setCardColor] = useState({backgroundColor:"white", borderRadius:"1.25rem", })
   const [navbar, setNavbar] = useState({backgroundImage: "linear-gradient(to top right, white  , rgba(132, 139, 200, 0.18))", position:"sticky", top:"0px", zIndex:"2"})
   const [toggling, setToggling] = useState("light");
@@ -61,7 +61,7 @@ function App() {
       {navBar&&<Navbar toggleStyle={toggleStyle} lightToggle={lightToggle} darkToggle={darkToggle} toggle={toggle} navbar={navbar} toggling={toggling}/>}
       {content&&<Content  cardColor={cardColor}/>}
 
-      <button class="btn btn-primary" style={{position:"fixed", bottom:"10px", left:"15px", zIndex:"2"}} onClick={Display}>My Library</button>
+      <button className="btn btn-primary" style={{position:"fixed", bottom:"10px", left:"15px", zIndex:"2"}} onClick={Display}>My Library</button>
     </>
 
   );
