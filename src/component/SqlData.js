@@ -20,7 +20,7 @@ export default class SqlContent extends Component {
 
     let dataJson = await data.json();
 
-    console.log(dataJson.paths[1].path[0])
+
 
     this.setState({ query: dataJson.paths });
  
@@ -46,7 +46,7 @@ export default class SqlContent extends Component {
         
         <div className="container">
           <div className="row">
-          {console.log(this.state.query[1])}
+ 
             {this.state.query.map((data) =>
            
               <div key={data.name} className="col-12 my-5">

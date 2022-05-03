@@ -13,7 +13,7 @@ export default function pathItem(props) {
 
                     {props.data.path.map((q) =>
                         <div key={q}>
-                            {console.log(q)}
+                          
                             <div className="pathbody my-md-3 my-5" >
                                 <pre style={{fontSize:"20px"}} className="text-center textquery pathcontent" id={q}>{q}</pre>
                                 <button className="btn btn-sm btn-success rounded-pill pathbutton" id="copyButton" onClick={() => props.copyQuery(q, q + "id")}>

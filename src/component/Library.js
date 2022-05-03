@@ -25,10 +25,10 @@ export default class Content extends Component {
     }
 
     async copyQuery(id1, id2) {
-        console.log(document.getElementById(id1).innerText);
+      
         await navigator.clipboard.writeText(document.getElementById(id1).innerText)
 
-        document.getElementById(id2).innerText = "Copied";
+        document.getElementById(id2).innerText = "Copied!!";
 
         setTimeout(() => {
             document.getElementById(id2).innerText = "Copy Query";
