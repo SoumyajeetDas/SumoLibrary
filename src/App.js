@@ -86,8 +86,8 @@ function App() {
   function toggle(data) {
     if (data === "light") {
 
-      setLightToggle({ backgroundColor: "#7388ec" })
-      setDarkToggle({ backgroundColor: "white" });
+      setLightToggle({ backgroundColor: "#7388ec", cursor: "pointer" })
+      setDarkToggle({ backgroundColor: "white", cursor: "pointer" });
       document.body.style.backgroundColor = "rgba(132, 139, 200, 0.18)"
       setToggleStyle({ backgroundColor: "white" });
       setCardColor({ backgroundColor: "white", borderRadius: "1.25rem" });
@@ -96,8 +96,8 @@ function App() {
     }
     else {
 
-      setLightToggle({ backgroundColor: "transparent", color: "white" })
-      setDarkToggle({ backgroundColor: "#7388ec" })
+      setLightToggle({ backgroundColor: "transparent", color: "white",cursor: "pointer" })
+      setDarkToggle({ backgroundColor: "#7388ec", cursor: "pointer" })
       document.body.style.backgroundColor = "#181a1e"
       setToggleStyle({ backgroundColor: "#424242" })
       setCardColor({ backgroundColor: "black", borderRadius: "1.25rem" })
