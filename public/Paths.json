@@ -1,0 +1,123 @@
+{
+	"paths": [
+		{
+			"name": "To go with Aerodata Messaging Agent and QXEFBGW for QX",
+			"path": [
+				"\\\\TUKPRFOADATA01\\Log\\Fogs",
+				"\\\\seaprfoadata01\\Log\\Fogs"
+			]
+		},
+		{
+			"name": "To go with Aerodata Messaging Agent for AS",
+			"path": [
+				"\\\\TUKVVAPP22\\Log\\FO\\AeroDataMessagingAgent",
+				"\\\\SEAVVAPP22\\Log\\FO\\AeroDataMessagingAgent"
+			]
+		},
+		{
+			"name": "Going to Pax Monitor Svc and some related to Fltops",
+			"path": [
+				"\\\\fltopsfs.alaskaair.com"
+			]
+		},
+		{
+			"name": "Logs for AircomWebSvcInvokerSvc",
+			"description": "",
+			"path": [
+				"\\\\seavvapp22\\Log\\FOGS\\AircomWebSvcInvokerSvc"
+			]
+		},
+		{
+			"name": "Takeoff and Landing for VX(AS) and QX",
+			"description": "",
+			"path": [
+				"\\\\fltopsfs.alaskaair.com\\FLTOPS\\fltdata\\perf_files"
+			]
+		},
+		{
+			"name": "For FlighPlanSvc",
+			"description": "",
+			"path": [
+				"\\\\SEAVVAPP22\\Log\\FO\\FlightPlanSvc",
+				"\\\\TUKVVAPP22\\Log\\FO\\FlightPlanSvc"
+			]
+		},
+		{
+			"name": "For CDMFeederSvc",
+			"description": "",
+			"path": [
+				"\\\\TUKVVAPP2\\Log\\FOGS\\CDMFeederSvc"
+			]
+		},
+		{
+			"name": "For UpdFlifoSvc",
+			"description": "",
+			"path": [
+				"\\\\seavvapp10\\Log\\FOGS\\UpdFlifoSvc"
+			]
+		},
+		{
+			"name": "For FlifoTimes",
+			"description": "",
+			"path": [
+				"\\\\seadvfltopdna01\\Log\\FOGS\\FlifoTimes"
+			]
+		},
+		{
+			"name": "For UpdServer",
+			"description": "",
+			"path": [
+				"\\\\seavvfogsapp2\\Log\\FOGS\\UpdServer",
+				"\\\\tukvvfogsapp2\\Log\\FOGS\\UpdServer"
+			]
+		},
+		{
+			"name": "For TheMaker",
+			"description": "",
+			"path": [
+				"\\\\SEAVVFOGSAPP2\\Log\\FOGS\\TheMaker",
+				"\\\\TUKVVFOGSAPP2\\Log\\FOGS\\TheMaker"
+			]
+		},
+		{
+			"name": "For FOGSBroker ",
+			"description": "",
+			"path": [
+				"\\\\SEAVVFOGSAPP2\\Log\\FOGS\\FOGSBroker",
+				"\\\\TUKVVFOGSAPP2\\Log\\FOGS\\FOGSBroker"
+			]
+		},
+		{
+			"name": "For AUChangeSvc",
+			"description": "",
+			"path": [
+				"\\\\SEAVVFOGSAPP2\\Log\\FOGS\\AUChangeSvc",
+				"\\\\TUKVVFOGSAPP2\\Log\\FOGS\\AUChangeSvc"
+			]
+		},
+		{
+			"name": "For ASFltRangeSvc",
+			"description": "",
+			"path": [
+				"\\\\SEAVVFOGSAPP2\\Log\\FOGS\\ASFltRangeSvc",
+				"\\\\TUKVVFOGSAPP2\\Log\\FOGS\\ASFltRangeSvc"
+			]
+		},
+		{
+			"name": "For JetStreamSvc",
+			"description": "",
+			"path": [
+				"\\\\SEAVVFOGSAPP2\\Log\\FOGS\\JetStreamSvc",
+				"\\\\TUKVVFOGSAPP2\\Log\\FOGS\\JetStreamSvc"
+			]
+		},
+		{
+			"name": "For PilotBriefing",
+			"description": "",
+			"path": [
+				"\\\\SEAVVFOGSAPP2\\Log\\FOGS\\PilotBriefingCCW",
+				"\\\\TUKVVFOGSAPP2\\Log\\FOGS\\PilotBriefingCCW"
+			]
+		}
+	]
+}

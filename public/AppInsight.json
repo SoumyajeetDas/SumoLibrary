@@ -1,0 +1,38 @@
+{
+	"paths": [
+		
+		{
+			"name": "Appinsight Query for AerodataClientws and FlghtPlanRequest",
+			"path": [
+				"aerodata_tlr_request_flight#",
+				"requested for flightplan flt#"
+			],
+			"note": "aerodata_tlr_request_flight# should be used in fogswamwebsvc-prod-appinsights Only for QX and requested for flightplan flt# should be used in fogswamwebui-prod-appinsights"
+		},
+		{
+			"name": "AppInsight Query For Weather API",
+			"path": [
+				"Transaction Search -->\nhttps://portal.azure.com/#@alaskaair.onmicrosoft.com/resource/subscriptions/e77dda64-c055-4785-b469-f3f47f252028/resourceGroups/foweatherdata-prod-group/providers/microsoft.insights/components/foweatherdata-appinsight-prod/searchV1",
+				"For Failures-->\nhttps://portal.azure.com/#@alaskaair.onmicrosoft.com/resource/subscriptions/e77dda64-c055-4785-b469-f3f47f252028/resourceGroups/foweatherdata-prod-group/providers/microsoft.insights/components/foweatherdata-appinsight-prod/failures"
+			],
+			"note": "For Transaction Search Click on Exception for Event Type. We can also give the Querys as (504) Gateway Timeout"
+		},
+		{
+			"name": "App Insight Query for WAM Performance Data Error and Info for AS and QX",
+			"path": [
+				"AeroDataClientWs/Error",
+				"AeroDataClientWs/Info"
+			],
+			"note": "AeroDataClientWs/Error shows any error for any of the Client"
+		},
+		{
+			"name": "App Insight Query for FlightPlanSvc",
+			"path": [
+				"FlightPlanSvc/FlightPlanRequest",
+				"Jeppesen websvc connection"
+			],
+			"note": "In FlightPlanSvc/FlightPlanRequest Property=Request Response Code 400 --> This property is not working now and will be updated and Jeppesen WebSvc Connection gives info about the JEP Down Issue"
+		}
+		
+	]
+}

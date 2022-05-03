@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export class Navbar extends Component {
     render() {
-  
+
         return (
             <>
                 <nav className={`navbar navbar-expand-lg navbar-${this.props.toggling}`} style={this.props.navbar}>
@@ -13,13 +13,13 @@ export class Navbar extends Component {
                         </a>
 
                         <div id="modes" className="rounded-pill p-0" style={this.props.toggleStyle}>
-                            <span className="material-symbols-outlined me-2 rounded-pill p-1" style={this.props.lightToggle} onClick={()=>this.props.toggle("light")}>
+                            <span className="material-symbols-outlined me-2 rounded-pill p-1" style={this.props.lightToggle} onClick={() => this.props.toggle("light")}>
                                 light_mode
                             </span>
-                            <span className="material-symbols-rounded ms-2 rounded-pill p-1" style={this.props.darkToggle} onClick={()=>this.props.toggle("dark")}>
+                            <span className="material-symbols-rounded ms-2 rounded-pill p-1" style={this.props.darkToggle} onClick={() => this.props.toggle("dark")}>
                                 dark_mode
                             </span>
-                           
+
                         </div>
 
                     </div>

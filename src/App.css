@@ -89,3 +89,15 @@ body {
   justify-content:space-around;
   
 }
+
+.pathbody{
+  display:flex;
+  justify-content:space-evenly;
+  flex-wrap: wrap;
+  align-items:center;
+}
+
+.pathcontent{
+  
+  width:50vw;
+}

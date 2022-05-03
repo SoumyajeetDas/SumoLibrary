@@ -1,0 +1,32 @@
+{
+	"paths": [
+		{
+			"name": "ACARS Realated Query",
+			"path": [
+				"select * from msg_mon order by msg_timestamp",
+				"select * from msg_mon where msg_id = 10584770",
+				"select * from fltseg where aircraftreg='N492AS' and identity='8947293'"
+			]
+		},
+		{
+			"name": "ACARS Processed Message Count Query",
+			"path": [
+				"SELECT count(*)\n--mon.msg_id, mon.msg_type, mon.acars_hist_id, mon.tail_num, mon.msg_timestam, mon.process_time, mon.receive_time, mon.complete, ah.message, mon.aircraftreg\nFROM MSG_MON mon LEFT JOIN dptails dp on dp.aircraftreg = mon.aircraftreg and dp.airline = 'AS' LEFT JOIN acars_history ah on ah.Identity = mon.acars_hist_id WHERE mon.process_time < (CURRENT + 475 UNITS MINUTE)\n-- 5 minutes grace period\nAND mon.receive_time is null AND ((mon.msg_type = 'APU34' AND dp.etops_ind > -1 AND dp.dummy = 0) OR mon.msg_type = 'PING34')"
+			]
+		},
+		{
+			"name": "Aircom SQl Query for details of msg",
+			"path": [
+				"select * from [dbo].[Messages]  order by MsgTs desc"
+			]
+		},
+		{
+			"name": "Sabre Swap Issue",
+			"description": "",
+			"path": [
+				"SELECT\nf.flt, f.identity, f.orig, f.dest, f.zulu_setd, f.l_date, t.pax_f_max, (t.pax_y_max + t.pax_yc_max), f.pallet,\nt.vmeqtype,t.res_fleet_type,t.aircraftreg\nFROM swapaudit\nINNER JOIN fltseg f ON f.identity = s.fltsegid\nINNER JOIN dptails t ON t.aircraftreg = f.aircraftreg AND t.airline = f.ac\nWHERE\nf.ac = 'AS'\nAND t.vmeqtype == ''\nAND f.flt_orig_date = '02/25/22'\nAND (f.opstype NOT IN('CXL', 'OVR', 'RET') OR f.opstype IS NULL)AND s.fleetchange = 'Y'\nAND (s.res_notified IS NULL OR s.res_notified = 'N')\nORDER BY f.ac, f.flt, f.zulu_etd, s.identity\n--AND f.flt = 121 AND f.aircraftreg = 'N928AK'\n--AND f.aircraftreg = 'N933AK'\n",
+				"select vmeqtype ,res_fleet_type,aircraftreg ,* from dptails where vmeqtype =''"
+			]
+		}
+	]
+ }
