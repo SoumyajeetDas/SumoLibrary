@@ -287,21 +287,7 @@
             },
             "searchSchedule": null,
             "description": ""
-        },
-        {
-            "type": "SavedSearchWithScheduleSyncDefinition",
-            "name": "Weather API 504 Gateway Timeout",
-            "search": {
-                "queryText": "_sourceHost=*v3dna13 _sourceName=*WeatherAPI* and (*error*  and *exception*) ",
-                "defaultTimeRange": "-15m",
-                "byReceiptTime": false,
-                "viewName": "",
-                "viewStartTime": "1970-01-01T00:00:00Z",
-                "queryParameters": [],
-                "parsingMode": "AutoParse"
-            },
-            "searchSchedule": null,
-            "description": ""
         }
+    
     ]
 }
