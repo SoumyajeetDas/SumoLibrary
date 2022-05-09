@@ -7,7 +7,6 @@ export default function pathItem(props) {
         <>
             <div className="card">
 
-
                 <div className="card-body" style={props.cardColor}>
                     <h1 id="card-title" className="card-title text-center mb-4">{props.data.name}</h1>
 

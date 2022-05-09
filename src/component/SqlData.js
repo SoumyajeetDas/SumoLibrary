@@ -1,14 +1,10 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import PathItem from './PathItem.js'
-export default class SqlContent extends Component {
+export default function SqlContent(props) {
 
-  constructor() {
-    super();
-    this.state = {
-      query: []
-    };
-  }
-  async componentDidMount() {
+  const [query, setQuery] = useState([]);
+
+  async function FetchData() {
     let data = await fetch('./DBQuery.json'
       , {
         headers: {
@@ -20,44 +16,43 @@ export default class SqlContent extends Component {
 
     let dataJson = await data.json();
 
-
-
-    this.setState({ query: dataJson.paths });
- 
-
+    setQuery(dataJson.paths);
   }
 
-  async copyQuery(id1, id2){
-  
+
+  useEffect(() => {
+    FetchData();
+  }, [])
+
+  async function copyQuery(id1, id2) {
+
     await navigator.clipboard.writeText(document.getElementById(id1).innerText)
- 
-    document.getElementById(id2).innerText="Copied!!";
 
-    setTimeout(() =>{
-      document.getElementById(id2).innerText="Copy Query";
-    },2000);
-    
+    document.getElementById(id2).innerText = "Copied!!";
+
+    setTimeout(() => {
+      document.getElementById(id2).innerText = "Copy Query";
+    }, 2000);
+
   }
 
-  render() {
- 
-    return (
-      <>
-        
-        <div className="container">
-          <div className="row">
- 
-            {this.state.query.map((data) =>
-           
-              <div key={data.name} className="col-12 my-5">
-                <PathItem  key={data.name}  data={data} copyQuery={this.copyQuery} buttonValue={this.state.value} cardColor={this.props.cardColor} />
-              </div>
-            )}
 
 
-          </div>
+  return (
+    <>
+
+      <div className="container">
+        <div className="row">
+
+          {query.map((data) =>
+
+            <div key={data.name} className="col-12 my-5">
+              <PathItem key={data.name} data={data} copyQuery={copyQuery} cardColor={props.cardColor} />
+            </div>
+          )}
         </div>
-      </>
-    )
-  }
+      </div>
+    </>
+  )
+
 }

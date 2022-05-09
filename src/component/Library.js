@@ -1,14 +1,11 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import QueryItem from './QueryItem.js'
-export default class Content extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-            query: []
-        };
-    }
-    async componentDidMount() {
+export default function Content(props) {
+
+    const [query, setQuery] = useState([]);
+
+    async function FetchData() {
         let data = await fetch('./myLibrary.json'
             , {
                 headers: {
@@ -20,12 +17,16 @@ export default class Content extends Component {
 
         let dataJson = await data.json();
 
-        this.setState({ query: dataJson.children });
-
+        setQuery(dataJson.children);
     }
 
-    async copyQuery(id1, id2) {
-      
+    useEffect(() => {
+        FetchData();
+    },[])
+
+
+    async function copyQuery(id1, id2) {
+
         await navigator.clipboard.writeText(document.getElementById(id1).innerText)
 
         document.getElementById(id2).innerText = "Copied!!";
@@ -36,22 +37,20 @@ export default class Content extends Component {
 
     }
 
-    render() {
 
-        return (
-            <>
+    return (
+        <>
 
-                <div className="container">
-                    <div className="row"  >
-                        {this.state.query.map((data) =>
-                            <div key={data.name} className="col-12 my-5">
-                                <QueryItem data={data} copyQuery={this.copyQuery} buttonValue={this.state.value} cardColor={this.props.cardColor} />
-                            </div>
-                        )}
+            <div className="container">
+                <div className="row"  >
+                    {query.map((data) =>
+                        <div key={data.name} className="col-12 my-5">
+                            <QueryItem data={data} copyQuery={copyQuery} cardColor={props.cardColor} />
+                        </div>
+                    )}
 
-                    </div>
                 </div>
-            </>
-        )
-    }
+            </div>
+        </>
+    )
 }

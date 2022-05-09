@@ -5,8 +5,6 @@ export default function queryItem(props) {
     return (
         <>
             <div className="card">
-                
-
                 <div className="card-body" style={props.cardColor}>
                     <h1 id="card-title" className="card-title text-center mb-4">{props.data.name}</h1>
                     <h5 className="text-center mb-4 textquery" id={props.data.search.queryText}>{(props.data.search.queryText)}</h5>
