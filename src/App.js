@@ -126,7 +126,9 @@ function App() {
 
 
   return (
+    
     <>
+      {console.log("Hello")}
       <Navbar toggleStyle={toggleStyle} lightToggle={lightToggle} darkToggle={darkToggle} toggle={toggle} navbar={navbar} toggling={toggling} />
       {content && <Content cardColor={cardColor} />}
 

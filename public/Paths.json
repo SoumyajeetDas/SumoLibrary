@@ -28,7 +28,7 @@
 			]
 		},
 		{
-			"name": "Takeoff and Landing for VX(AS) and QX",
+			"name": "Takeoff and Landing for QX",
 			"description": "",
 			"path": [
 				"\\\\fltopsfs.alaskaair.com\\FLTOPS\\fltdata\\perf_files"
@@ -117,6 +117,14 @@
 			"path": [
 				"\\\\SEAVVFOGSAPP2\\Log\\FOGS\\PilotBriefingCCW",
 				"\\\\TUKVVFOGSAPP2\\Log\\FOGS\\PilotBriefingCCW"
+			]
+		},
+		{
+			"name": "For Weather",
+			"description": "",
+			"path": [
+				"\\\\seavvapmgrprb01\\Log\\FOGS"
+				
 			]
 		}
 	]

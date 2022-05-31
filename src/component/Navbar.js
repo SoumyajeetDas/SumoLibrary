@@ -8,7 +8,7 @@ function Navbar(props) {
                 <div className="container-fluid">
                     <a id="brandname" className="navbar-brand" href="/">
                         <img src="travel.png" className="me-2" alt="loading...." width={35} height={35} style={{ display: "inline" }}></img>
-                        <h3 id="brandnaming" style={{ display: "inline" }}>Sumo Library</h3>
+                        <h3 id="brandnaming" style={{ display: "inline" }}>FlightOps Library</h3>
                     </a>
 
                     <div id="modes" className="rounded-pill p-0" style={props.toggleStyle}>
