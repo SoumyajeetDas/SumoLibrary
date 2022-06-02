@@ -23,11 +23,9 @@ export default function AppInsightContent(props) {
   }
 
 
-
   useEffect(() => {
     FetchData();
   }, [])
-
 
 
   async function copyQuery(id1, id2) {

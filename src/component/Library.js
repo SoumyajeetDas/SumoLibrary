@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import QueryItem from './QueryItem.js'
 
-export default function Content(props) {
+export default function Library(props) {
 
     const [query, setQuery] = useState([]);
 
@@ -40,7 +40,6 @@ export default function Content(props) {
 
     return (
         <>
-
             <div className="container">
                 <div className="row"  >
                     {query.map((data) =>

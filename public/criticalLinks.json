@@ -1,0 +1,58 @@
+{
+    "links": [
+
+        {
+            "name": "ACARS",
+            "path":"https://alaskaair.sharepoint.com/sites/SysDocs/SysDoc/Forms/ModernSP.aspx?viewid=7e5f878c%2D26da%2D4602%2Dae35%2D14a8b0d20386&id=%2Fsites%2FSysDocs%2FSysDoc%2FACARS%20%28AS%29",
+			"smes":"Rick Cahoon, Bill Batt, Quoc Nguyen, Arun Sharma",
+			"vendors": "ARINC for communication issues, Sita for Aircom application issues"
+            
+        },
+
+        {
+            "name": "Aircraft Performance Data (Dynamic Source and AeroData)",
+            "path": "https://alaskaair.sharepoint.com/sites/SysDocs/SysDoc/Forms/ModernSP.aspx?RootFolder=%2Fsites%2FSysDocs%2FSysDoc%2FAircraft%20Performance&FolderCTID=0x0120004351146B181DD84292F1DDC1612E575F&View=%7BE81894C5%2DF00C%2D44D9%2DBCAA%2DA4D57774A688%7D",
+			"smes": "Bill Batt, Delwin Andrews",
+			"vendors": "Dynamic Source (Boeing), AeroData (E175, Airbus)"
+        },
+
+        {
+            "name": "Flight Planning (JetPlan and WAM or Worksheet)",
+            "path": "https://alaskaair.sharepoint.com/sites/SysDocs/SysDoc/Forms/ModernSP.aspx?viewid=7e5f878c%2D26da%2D4602%2Dae35%2D14a8b0d20386&id=%2Fsites%2FSysDocs%2FSysDoc%2FFlight%20Planning",
+			"smes": "Esther Chan, Michael Dunn",
+			"vendors": "Jeppesen (Boeing Global Services)"           
+        },
+        {
+            "name": "Pilot Briefing (JetStream)",
+            "path": "https://alaskaair.sharepoint.com/sites/SysDocs/SysDoc/Forms/ModernSP.aspx?viewid=7e5f878c%2D26da%2D4602%2Dae35%2D14a8b0d20386&id=%2Fsites%2FSysDocs%2FSysDoc%2FPilot%20Briefing",
+			"smes": "Steven Potter, Brad Edwards, Quoc Nguyen",
+			"vendors": "Not Present"
+        },
+		{
+            "name": "QX EFB (QX Q400 tails)",
+            "path": "https://alaskaair.sharepoint.com/sites/SysDocs/SysDoc/Forms/ModernSP.aspx?sortField=LinkFilename&isAscending=false&viewid=7e5f878c%2D26da%2D4602%2Dae35%2D14a8b0d20386&id=%2Fsites%2FSysDocs%2FSysDoc%2FQX%20EFB",
+			"smes": "Bill Batt, Rick Cahoon, Steven Potter",
+			"vendors": "FlyHT, Iridium (previously AIRDAT/Panasonic), ARINC"
+        },
+		{
+            "name": "S4A (Weight and Balance)",
+            "path": "https://alaskaair.sharepoint.com/sites/SysDocs/SysDoc/Forms/AllItems.aspx?cid=42f8d525%2Ded10%2D41e6%2D8811%2D459b91b375c4&RootFolder=%2Fsites%2FSysDocs%2FSysDoc%2FAircraft%20Weight%20and%20Balance&FolderCTID=0x0120003BEF516123F8A1418581A550DB53DE7900F0F9BC9860ECCD46B371DFE6CA38209Fe",
+			"smes": "Brad Edwards, Sarada Jonnalagadda, Arun Sharma",
+			"vendors": "Smart4Aviation aka SmartLoad aka SmartComm"
+        },
+		{
+            "name": "Visops",
+            "path": "https://alaskaair.sharepoint.com/sites/SysDocs/SysDoc/Forms/ModernSP.aspx?sortField=LinkFilename&isAscending=false&viewid=7e5f878c%2D26da%2D4602%2Dae35%2D14a8b0d20386&id=%2Fsites%2FSysDocs%2FSysDoc%2FVisops",
+			"smes": "Ben Shocki, Brad Edwards, Steven Potter",
+			"vendors": "Not Present"
+        },
+		{
+            "name": "Weather",
+            "path": "https://alaskaair.sharepoint.com/sites/SysDocs/SysDoc/Forms/ModernSP.aspx?sortField=LinkFilename&isAscending=false&viewid=7e5f878c%2D26da%2D4602%2Dae35%2D14a8b0d20386&id=%2Fsites%2FSysDocs%2FSysDoc%2FWeather",
+			"smes": "Steven Potter",
+			"vendors": "IBM/Weather aka The Weather Company aka TWC (other names WSI, WSI Fusion, F&F, Field & Facilities)"
+        }
+
+
+    ]
+}

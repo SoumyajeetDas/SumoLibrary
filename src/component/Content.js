@@ -17,6 +17,7 @@ export default function Content(props) {
     let dataJson = await data.json();
 
     setQuery(dataJson.children);
+    
   }
 
   useEffect(() => {

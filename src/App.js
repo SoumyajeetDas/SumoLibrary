@@ -1,13 +1,14 @@
-
 import './App.css';
-import Content from './component/Content';
 import Navbar from './component/Navbar';
 import React, { useState } from 'react'
 import Library from './component/Library.js'
 import PathData from './component/Paths.js'
 import AppInsight from './component/AppInsightData.js'
 import SqlData from './component/SqlData.js'
-
+import Triage from './component/Triage.js'
+import OpsCentral from './component/OpsCentral.js'
+import Criticalsystem from './component/CriticalSystem.js';
+import Content from './component/Content.js';
 
 function App() {
   const [toggleStyle, setToggleStyle] = useState({ backgroundColor: "white" });
@@ -19,6 +20,10 @@ function App() {
 
   const [lib, setLib] = useState(false);
   const [content, displayContent] = useState(true);
+  const [triageContent, displayTriageContent] = useState(false);
+  const [opsCentralContent, displayOpsCentralContent] = useState(false);
+  const [criticalsystem, displayCriticalSystem] = useState(false);
+  const [triageButton, setTriageButton] = useState(true);
   const [togglingButton, setTogglingButton] = useState("My Library");
   const [pathContent, setPathContent] = useState(false);
   const [appInsightContent, setappInsightContent] = useState(false);
@@ -31,11 +36,14 @@ function App() {
 
 
   function Display() {
-
     if (content === true) {
       setLib(true);
       displayContent(false);
       setTogglingButton("External");
+      setTriageButton(false);
+      displayCriticalSystem(false);
+      displayTriageContent(false);
+      displayOpsCentralContent(false);
       setPathButton(true);
       setappInsightButton(true);
       setSqlButton(true);
@@ -51,6 +59,7 @@ function App() {
       setLib(false);
       displayContent(true);
       setTogglingButton("My Library");
+      setTriageButton(true);
       setPathButton(false);
       setappInsightButton(false);
       setSqlButton(false);
@@ -61,6 +70,33 @@ function App() {
       setSumoContent(false);
 
     }
+  }
+
+  function DisplayTriage() {
+
+    displayTriageContent(true)
+    displayContent(false);
+    displayOpsCentralContent(false)
+    displayCriticalSystem(false);
+
+  }
+
+  function DisplayOpsCentral() {
+
+    displayOpsCentralContent(true);
+    displayContent(false);
+    displayTriageContent(false);
+    displayCriticalSystem(false);
+
+  }
+
+  function DisplayCriticalSystem() {
+
+    displayCriticalSystem(true);
+    displayOpsCentralContent(false);
+    displayContent(false);
+    displayTriageContent(false);
+
   }
 
   function DisplayPath() {
@@ -126,11 +162,17 @@ function App() {
 
 
   return (
-    
+
     <>
-      {console.log("Hello")}
       <Navbar toggleStyle={toggleStyle} lightToggle={lightToggle} darkToggle={darkToggle} toggle={toggle} navbar={navbar} toggling={toggling} />
+
       {content && <Content cardColor={cardColor} />}
+
+      {criticalsystem && <Criticalsystem cardColor={cardColor} />}
+
+      {triageContent && <Triage cardColor={cardColor} />}
+
+      {opsCentralContent && <OpsCentral cardColor={cardColor} />}
 
       {lib && <Library cardColor={cardColor} />}
 
@@ -143,6 +185,11 @@ function App() {
       {sumoContent && <Library cardColor={cardColor} />}
 
       <button className="btn btn-sm btn-warning rounded-circle" style={{ position: "fixed", bottom: "107px", left: "5px", zIndex: "2", padding: "7px" }} onClick={Display}>{togglingButton}</button>
+      {triageButton && <button className="btn btn-sm btn-warning rounded-circle" style={{ position: "fixed", bottom: "155px", left: "5px", zIndex: "2", padding: "7px" }} onClick={DisplayTriage}>Triage</button>}
+      {triageButton && <button className="btn btn-sm btn-warning rounded-circle" style={{ position: "fixed", bottom: "58px", left: "5px", zIndex: "2", padding: "7px" }} onClick={DisplayOpsCentral}>Ops Central</button>}
+      {triageButton && <button className="btn btn-sm btn-warning rounded-circle" style={{ position: "fixed", bottom: "10px", left: "5px", zIndex: "2", padding: "7px" }} onClick={DisplayCriticalSystem}>Critical System</button>}
+
+
       {pathButton && <button className="btn btn-sm btn-warning rounded-circle" style={{ position: "fixed", bottom: "160px", left: "5px", zIndex: "2", padding: "7px" }} onClick={DisplayPath}>Paths</button>}
       {appInsightButton && <button className="btn btn-sm btn-warning rounded-circle" style={{ position: "fixed", bottom: "55px", left: "5px", zIndex: "2", padding: "7px" }} onClick={DisplayAppInsight}>AppInsight</button>}
       {sqlButton && <button className="btn btn-sm btn-warning rounded-circle" style={{ position: "fixed", bottom: "210px", left: "5px", zIndex: "2", padding: "7px" }} onClick={DisplaySql}>Sql</button>}

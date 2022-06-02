@@ -1,0 +1,48 @@
+{
+	"links": [
+		{
+			"name": "ACARS",
+			"path": "https://alaskaair.sharepoint.com/:w:/r/sites/SysDocs/_layouts/15/Doc.aspx?sourcedoc=%7B781CA6D6-1F42-4C55-BEF2-C5D8C9704290%7D&file=ACARS_Triage_Troubleshooting.docx&action=default&mobileredirect=true&wdLOR=c679A0BE3-DE16-4166-8325-FA3FC1604714&cid=5bcb7e77-3c6c-44f3-a04c-3743d13726ab"
+		},
+		{
+			"name": "FOGS",
+			"path": "https://alaskaair.sharepoint.com/:w:/r/sites/SysDocs/_layouts/15/Doc.aspx?sourcedoc=%7BBC96B65B-99EB-40CE-B811-2AE7BF995E5F%7D&file=AirlineOperationsWebPortal_AKA_FOGS_Portal_Triage_Troubleshooting.docx&action=default&mobileredirect=true"
+		},
+		{
+			"name": "Jetplan",
+
+			"path": "https://alaskaair.sharepoint.com/:w:/r/sites/SysDocs/_layouts/15/Doc.aspx?sourcedoc=%7Bf0f37d42-c602-41a7-aa73-9f3af09fe00d%7D&action=edit&uid=%7BF0F37D42-C602-41A7-AA73-9F3AF09FE00D%7D&ListItemId=52531&ListId=%7B40E188B3-73DC-403F-B84B-54841BE847A8%7D&odsp=1&env=prod"
+		},
+        {
+			"name": "Pilot Briefing",
+
+			"path": "https://alaskaair.sharepoint.com/:w:/r/sites/SysDocs/_layouts/15/Doc.aspx?sourcedoc=%7B699672D5-202A-45C7-80BA-8D3D594EC933%7D&file=Pilot_Briefing_Triage_Troubleshooting.docx&action=default&mobileredirect=true"
+		},
+        {
+			"name": "WAM",
+
+			"path": "https://alaskaair.sharepoint.com/:w:/r/sites/SysDocs/_layouts/15/Doc.aspx?sourcedoc=%7Bf0f37d42-c602-41a7-aa73-9f3af09fe00d%7D&action=edit&uid=%7BF0F37D42-C602-41A7-AA73-9F3AF09FE00D%7D&ListItemId=52531&ListId=%7B40E188B3-73DC-403F-B84B-54841BE847A8%7D&odsp=1&env=prod"
+		},
+        {
+			"name": "Jetpack",
+
+			"path": "https://alaskaair.sharepoint.com/:w:/r/sites/SysDocs/_layouts/15/Doc.aspx?sourcedoc=%7B7DC02E5E-EF63-40AA-90A7-5A633B58E010%7D&file=JetPack_Triage_Troubleshooting.docx&action=default&mobileredirect=true"
+		},
+        {
+			"name": "S4A",
+
+			"path": "https://alaskaair.sharepoint.com/:w:/r/sites/SysDocs/_layouts/15/Doc.aspx?sourcedoc=%7B06828A43-BB4C-42CD-870E-C2C4C607C9EC%7D&file=S4A_Triage_Troubleshooting.docx&action=default&mobileredirect=true"
+		},
+        {
+			"name": "SABRE",
+
+			"path": "https://alaskaair.sharepoint.com/:w:/r/sites/SysDocs/_layouts/15/Doc.aspx?sourcedoc=%7B045E4FED-F1B8-4CF2-8CC7-468836ADBEB0%7D&file=Sabre_Triage_Troubleshooting.docx&action=default&mobileredirect=true"
+		},
+		{
+			"name": "Aircraft Performance",
+			"path": "https://alaskaair.sharepoint.com/:w:/r/sites/SysDocs/_layouts/15/Doc.aspx?sourcedoc=%7Bc758e56d-3e63-4e0c-bb72-b98eeded3ba0%7D&action=edit&uid=%7BC758E56D-3E63-4E0C-BB72-B98EEDED3BA0%7D&ListItemId=52595&ListId=%7B40E188B3-73DC-403F-B84B-54841BE847A8%7D&odsp=1&env=prod"
+			
+		}
+        
+	]
+}

@@ -1,0 +1,222 @@
+{
+	"links": [
+		{
+			"name": "ACARS Messenger",
+			"path": "http://fogscentral.insideaag.com/ACARS-Messenger.ashx"
+		},
+		{
+			"name": "Acars Messages and ACARSGW",
+			"path": "http://fogscentral.insideaag.com/ACARS-Messages-and-AcarsGW.ashx"
+			
+		},
+		{
+			"name": "AIRCOM Server",
+			"path": "http://fogscentral.insideaag.com/Aircom-Server.ashx"
+		},
+		{
+			"name": "AIRCOMWEBSVCINVOKERSVC",
+			"path": "http://fogscentral.insideaag.com/AircomWebSvcInvokerSvc.ashx"
+		},
+        {
+			"name": "AUTO ETD",
+			"path": "http://fogscentral.insideaag.com/Auto-ETD.ashx"
+		},
+        {
+			"name": "CDMFeederSvc",
+			"path": "http://fogscentral.insideaag.com/CDMFeeder.ashx"
+		},
+        {
+			"name": "Delay Manager",
+			"path": "http://fogscentral.insideaag.com/Delay-Manager.ashx"
+		},
+        {
+			"name": "Desk Assignment",
+			"path": "http://fogscentral.insideaag.com/Desk-Assignment.ashx"
+		},
+        {
+			"name": "FIDS Server",
+			"path": "http://fogscentral.insideaag.com/FidsServer.ashx"
+		},
+		{
+			"name": "FlifoAuditSvc",
+			"path": "http://fogscentral.insideaag.com/FLIFOAuditSvc.ashx"
+		},
+		{
+			"name": "Flifo Times/OOOI Processing",
+			"path": "http://fogscentral.insideaag.com/FlifoTimes-Web-Service.ashx"
+		},
+		{
+			"name": "Flifo Ops Window Service",
+			"path": "http://fogscentral.insideaag.com/FOGS-Windows-Services.ashx"
+		},
+		{
+			"name": "FlightEventsPublisherSvc",
+			"path": "http://fogscentral.insideaag.com/FlightEventsPublisherSvc.ashx"
+		},
+		{
+			"name": "FOASLOADSKED",
+			"path": "http://fogscentral.insideaag.com/FOASLOADSKED.ashx"
+		},
+		{
+			"name": "FOASQXEMPLOAD",
+			"path": "http://fogscentral.insideaag.com/FOASQXEMPLOAD.ashx"
+		},
+		{
+			"name": "FOATCMESSENGER",
+			"path": "http://fogscentral.insideaag.com/FOATCMessenger.ashx"
+		},
+		{
+			"name": "FOATCPLANS",
+			"path": "http://fogscentral.insideaag.com/FOATCPlans.ashx"
+		},
+		{
+			"name": "FOFLICSFEED",
+			"path": "http://fogscentral.insideaag.com/FOFLICSFeed.ashx"
+		},
+		{
+			"name": "Schedule Load(Rotation and Schecule)",
+			"path": "http://fogscentral.insideaag.com/Flight-Schedule-Load.ashx"
+		},
+		{
+			"name": "FOOOLOADSKED",
+			"path": "http://fogscentral.insideaag.com/FOOOLOADSKED.ashx"
+		},
+		{
+			"name": "FOQXLOADSKED",
+			"path": "http://fogscentral.insideaag.com/FOQXLOADSKED.ashx"
+		},
+		{
+			"name": "FOQXMARGWX",
+			"path": "http://fogscentral.insideaag.com/FOQXMargWX.ashx"
+		},
+		{
+			"name": "FOVERIFYSKED",
+			"path": "http://fogscentral.insideaag.com/FOVerifySked.ashx"
+		},
+		{
+			"name": "FOWASPFltPlans",
+			"path": "http://fogscentral.insideaag.com/FOWASPFltPlans.ashx"
+		},
+		{
+			"name": "FSM & ESM",
+			"path": "http://fogscentral.insideaag.com/FSM.ashx"
+		},
+
+		{
+			"name": "IrregularOps",
+			"path": "http://fogscentral.insideaag.com/IrregularOps.ashx"
+		},
+		{
+			"name": "Irrops2Sabre",
+			"path": "http://fogscentral.insideaag.com/Irrops2Sabre.ashx"
+		},
+		{
+			"name": "Jetstream Website",
+			"path": "http://fogscentral.insideaag.com/Jetstream.ashx"
+		},
+		{
+			"name": "Jetstream, Missing Weather",
+			"path": "http://fogscentral.insideaag.com/Jetstream-Missing-Weather.ashx"
+		},
+		{
+			"name": "JAWS",
+			"path": "http://fogscentral.insideaag.com/Juneau-Airport-Wind-System-JAWS.ashx"
+		},
+		{
+			"name": "MakerFeeder",
+			"path": "http://fogscentral.insideaag.com/MakerFeeder.ashx"
+		},
+		{
+			"name": "TIBCO Events Published By FOGS",
+			"path": "http://fogscentral.insideaag.com/List-of-FOGS-Tibco-Events.ashx"
+		},
+		{
+			"name": "Horizon EFB (QXEFBGW)",
+			"path": "http://fogscentral.insideaag.com/QXEFBGW-Horizon-Electronic-Flight-Bag-Gateway.ashx"
+		},
+		{
+			"name": "Pilot Briefing Web Svc",
+			"path": "http://fogscentral.insideaag.com/Pilot-Briefing-Web-Service.ashx"
+		},
+		{
+			"name": "PaxMonitorBatch",
+			"path": "http://fogscentral.insideaag.com/PaxMonitorBatch.ashx"
+		},
+		{
+			"name": "SendTimes",
+			"path": "http://fogscentral.insideaag.com/Send-Times.ashx"
+		},
+		{
+			"name": "SOC Login Scripts",
+			"path": "http://fogscentral.insideaag.com/SOC-Login-Scripts.ashx"
+		},
+		{
+			"name": "The Maker",
+			"path": "http://fogscentral.insideaag.com/The-Maker.ashx"
+		},
+		{
+			"name": "Not An Active Leg Message",
+			"path": "http://fogscentral.insideaag.com/NotAnActiveLeg.ashx"
+		},
+        {
+			"name": "UpdFlifoSvc",
+			"path": "http://fogscentral.insideaag.com/UpdFlifoSvc.ashx"
+		},
+		{
+			"name": "UpdServer",
+			"path": "http://fogscentral.insideaag.com/UpdServer.ashx"
+		},
+		{
+			"name": "Visops",
+			"path": "http://fogscentral.insideaag.com/Visops.ashx"
+		},
+		{
+			"name": "VisopsMaintenaceInterfaceSvc",
+			"path": "http://fogscentral.insideaag.com/VisopsMaintenanceInterfaceSvc.ashx"
+		},
+		{
+			"name": "Weather",
+			"path": "http://fogscentral.insideaag.com/Weather-Problems.ashx"
+		},
+		{
+			"name": "Weather API",
+			"path": "http://fogscentral.insideaag.com/Weather-API.ashx"
+		},
+		{
+			"name": "Weather Support and Questions",
+			"path": "https://alaskaair.sharepoint.com/:w:/s/ITSFlightOperationsGang/ESCSJDgyRatLl5bWgMJ7EG0BrSoOM1727a9wPCR2nbJn8A?e=drKFzf"
+		},
+		{
+			"name": "WebFinder",
+			"path": "http://fogscentral.insideaag.com/WebFinder.ashx"
+		},
+		{
+			"name": "WebSendTimes",
+			"path": "http://fogscentral.insideaag.com/WebSendTimes.ashx"
+		},
+		{
+			"name": "Worksheet",
+			"path": "http://fogscentral.insideaag.com/Worksheet.ashx"
+		},
+		{
+			"name": "WSI and TIBCO",
+			"path": "http://fogscentral.insideaag.com/WSI-Data-Integrations.ashx"
+		},
+		{
+			"name": "WSI Fusion and WSI Pilot Brief",
+			"path": "http://fogscentral.insideaag.com/WSI-Fusion-and-WSI-Pilot-Brief.ashx"
+		},
+		{
+			"name": "WSI Fusion Interface",
+			"path": "http://fogscentral.insideaag.com/WSI-Fusion-Interface.ashx"
+		},
+		{
+			"name": "WSI Schedule Feeder",
+			"path": "http://fogscentral.insideaag.com/WSI-Schedule-Feeder.ashx"
+		},
+		{
+			"name": "WxServer",
+			"path": "http://fogscentral.insideaag.com/WxServer.ashx"
+		}
+	]
+}
