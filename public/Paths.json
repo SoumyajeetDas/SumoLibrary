@@ -112,7 +112,7 @@
 			]
 		},
 		{
-			"name": "For PilotBriefing",
+			"name": "For PilotBriefingCCW",
 			"description": "",
 			"path": [
 				"\\\\SEAVVFOGSAPP2\\Log\\FOGS\\PilotBriefingCCW",

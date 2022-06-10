@@ -187,7 +187,7 @@
             "type": "SavedSearchWithScheduleSyncDefinition",
             "name": "PilotBriefing WS for AS",
             "search": {
-                "queryText": "_sourceHost=seav3dna09 _sourceName = *PilotBriefing* and \"AS/flights/206/briefingpackets?\"",
+                "queryText": "_sourceHost=*v3dna* _sourceName = *PilotBriefing* and \"AS/flights/206/briefingpackets?\"",
                 "defaultTimeRange": "Last 30 Days",
                 "byReceiptTime": false,
                 "viewName": "",
@@ -202,7 +202,7 @@
             "type": "SavedSearchWithScheduleSyncDefinition",
             "name": "PilotBriefing WS for QX",
             "search": {
-                "queryText": "_sourceHost=seav3dna09 _sourceName = *PilotBriefing* and \"QX/flights/2179/briefingpackets?\"",
+                "queryText": "_sourceHost=*v3dna* _sourceName = *PilotBriefing* and \"QX/flights/2179/briefingpackets?\"",
                 "defaultTimeRange": "-15m",
                 "byReceiptTime": false,
                 "viewName": "",
