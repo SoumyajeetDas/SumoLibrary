@@ -41,8 +41,8 @@
 
 .card {
   border-radius: 1.25rem;
-  box-shadow:0 2rem 3rem rgb(132, 139, 200, 0.18);
-  border:none;
+  box-shadow: 0 2rem 3rem rgb(132, 139, 200, 0.18);
+  border: none;
 }
 
 
@@ -54,7 +54,7 @@
 .textquery {
   font-family: 'Libre Bodoni', serif;
   font-family: 'Source Serif Pro', serif;
-  color:#ff7782;
+  color: #ff7782;
 }
 
 
@@ -66,38 +66,127 @@ body {
   color: #7d8da1;
 }
 
-#brandnaming{
+#brandnaming {
   font-family: 'Libre Bodoni', serif;
   font-family: 'Source Serif Pro', serif;
   font-family: 'Tapestry', cursive;
 }
 
-.footer{
-  display:flex;
-  justify-content:space-between;
+.footer {
+  display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
-#modes{
-  display:flex;
+#modes {
+  display: flex;
   justify-content: space-around;
-  align-items:center;
+  align-items: center;
 }
 
-#copyButton{
-  display:flex;
-  justify-content:space-around;
-  
+#copyButton {
+  display: flex;
+  justify-content: space-around;
+
 }
 
-.pathbody{
-  display:flex;
-  justify-content:space-evenly;
+.pathbody {
+  display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
+  align-items: center;
+}
+
+.pathcontent {
+
+  width: 50vw;
+}
+
+
+.menulists {
+  position: fixed;
+  left:-100;
+  bottom:100px;
+  background-color: rgb(255,119,130,0.8);
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  color:white;
+  font-family: 'Libre Bodoni', serif;
+  font-family: 'Source Serif Pro', serif;
+  z-index: 2;
+  animation-name: slide;
+  animation-duration:0.4s;
+  animation-timing-function:linear;
+  animation-fill-mode: forwards;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+@keyframes slide {
+  from {
+      left:-10%
+  }
+  
+  to{
+    left:5px;
+}
+}
+
+.menulists a{
+  text-decoration: none;
+  color:white;
+}
+
+
+
+.menulists1{
+  position: fixed;
+  left:5px;
+  bottom:100px;
+  background-color: rgb(255,119,130,0.8);
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  color:white;
+  font-family: 'Libre Bodoni', serif;
+  font-family: 'Source Serif Pro', serif;
+  z-index: 2;
+  animation-name: slide1;
+  animation-duration:1s;
+  animation-timing-function:ease-in-out;
+  animation-fill-mode: forwards;
+  font-size: 17px;
+}
+
+@keyframes slide1 {
+  from {
+      left:5px
+  }
+
+  to{
+      left:-100%;
+  }
+}
+
+.menulists1 a{
+  text-decoration: none;
+  color:white;
+}
+
+.menulists2{
+  display:none;
+}
+
+.menuitems{
+  display:flex;
+  justify-content:flex-start;
   align-items:center;
 }
 
-.pathcontent{
-  
-  width:50vw;
+.menuitems:hover, .menuitems:hover *{
+  background-color: #FFAEAE;
+  border-radius: 10px;
+  color:#7d8da1;
+
 }

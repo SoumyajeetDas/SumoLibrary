@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import CentralOpsLink from './CriticalSystemLinks.js'
 
+
 export default function CentralOpsContent(props) {
 
   const [query, setQuery] = useState([])
