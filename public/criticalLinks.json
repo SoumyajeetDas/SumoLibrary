@@ -23,6 +23,12 @@
 			"vendors": "Jeppesen (Boeing Global Services)"           
         },
         {
+            "name": "Flight Ops Windows SVc",
+            "path": "http://fogscentral.insideaag.com/FOGS-Windows-Services.ashx",
+			"smes": "N/A",
+			"vendors": "N/A"
+        },
+        {
             "name": "Pilot Briefing (JetStream)",
             "path": "https://alaskaair.sharepoint.com/sites/SysDocs/SysDoc/Forms/ModernSP.aspx?viewid=7e5f878c%2D26da%2D4602%2Dae35%2D14a8b0d20386&id=%2Fsites%2FSysDocs%2FSysDoc%2FPilot%20Briefing",
 			"smes": "Steven Potter, Brad Edwards, Quoc Nguyen",
@@ -45,6 +51,12 @@
             "path": "https://alaskaair.sharepoint.com/sites/SysDocs/SysDoc/Forms/ModernSP.aspx?sortField=LinkFilename&isAscending=false&viewid=7e5f878c%2D26da%2D4602%2Dae35%2D14a8b0d20386&id=%2Fsites%2FSysDocs%2FSysDoc%2FVisops",
 			"smes": "Ben Shocki, Brad Edwards, Steven Potter",
 			"vendors": "Not Present"
+        },
+        {
+            "name": "Vendor Contact Information",
+            "path": "http://fogscentral.insideaag.com/Vendor-Contact-Information.ashx",
+			"smes": "N/A",
+			"vendors": "N/A"
         },
 		{
             "name": "Weather",
