@@ -547,7 +547,7 @@
         },
         {
             "type": "SavedSearchWithScheduleSyncDefinition",
-            "name": "FlightPlanSvc Windows service error logs",
+            "name": "FlightPlanSvc error logs",
             "search": {
                 "queryText": "((_sourceCategory=Application_Log _source=FO_Application_Log _collector=*APP*))\nAND _sourcename = \"D:\\\\Airgroup\\\\Log\\\\FO\\\\FlightPlanSvc\\\\AppErr2021-06-30.log\"\n| parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\"\n| where errorlevel = \"ERROR\"",
                 "defaultTimeRange": "06/30/2021 4:14:49 AM to 06/30/2021 7:29:49 AM",
@@ -558,7 +558,7 @@
                 "parsingMode": "Manual"
             },
             "searchSchedule": null,
-            "description": "FlightPlanSvc windows service errors - UPDATE LOG DATE"
+            "description": "FlightPlanSvc errors - UPDATE LOG DATE"
         },
         {
             "type": "SavedSearchWithScheduleSyncDefinition",
@@ -804,7 +804,7 @@
         },
         {
             "type": "SavedSearchWithScheduleSyncDefinition",
-            "name": "Mtx Events MEL",
+            "name": "Mtx Events MEL(To get info about MEL data which is going to WAM)",
             "search": {
                 "queryText": "(_sourceCategory=Application_Log _collector=*3DNA* AND _sourceName=*Mel* AND error)\n",
                 "defaultTimeRange": "-15m",

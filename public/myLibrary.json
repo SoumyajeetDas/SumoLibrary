@@ -52,7 +52,7 @@
             "type": "SavedSearchWithScheduleSyncDefinition",
             "name": "Error In FlightPlanSvc",
             "search": {
-                "queryText": "_sourceHost=tukvvapp22 and \"FlightPlanSvc\" and \"Error\"",
+                "queryText": "_sourceHost=*vvapp22 and \"FlightPlanSvc\" and \"Error\"",
                 "defaultTimeRange": "-15m",
                 "byReceiptTime": false,
                 "viewName": "",
@@ -83,6 +83,21 @@
             "name": "FlightPlanSvc DB Updating",
             "search": {
                 "queryText": "_sourceHost=*vvapp22 and \"DB record SUCCEEDED\"",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "FlightPlan WindowsSvc Errors",
+            "search": {
+                "queryText": "(((_sourceCategory=Application_Log _source=FO_Application_Log _collector=*dna*))) AND _sourceName=D:\\Airgroup\\Log\\FO\\FlightPlanningWs\\FlightPlanningWS* | parse regex \"(?:\\S+\\s+){3}(?<AppName>\\S+)\\s\" | where errorlevel = \"ERROR\"",
                 "defaultTimeRange": "-15m",
                 "byReceiptTime": false,
                 "viewName": "",
@@ -155,7 +170,7 @@
         },
         {
             "type": "SavedSearchWithScheduleSyncDefinition",
-            "name": "LocationMapWS Error",
+            "name": "Location Map API(hosted on both Azure and On Premise)",
             "search": {
                 "queryText": "_source=FO_Application_Log\n| where appname = \"FO\\\\LocationMapsWS\" AND errorlevel = \"ERROR\"\n|count _sourceHost |top 1_sourceHost by _count\n",
                 "defaultTimeRange": "-15m",
@@ -272,22 +287,8 @@
             },
             "searchSchedule": null,
             "description": ""
-        },
-        {
-            "type": "SavedSearchWithScheduleSyncDefinition",
-            "name": "Weather 504 Gateway Timeout for API",
-            "search": {
-                "queryText": "_sourceHost=*v3dna13 _sourceName=*WeatherAPI* and (*error*  and *exception*) ",
-                "defaultTimeRange": "-15m",
-                "byReceiptTime": false,
-                "viewName": "",
-                "viewStartTime": "1970-01-01T00:00:00Z",
-                "queryParameters": [],
-                "parsingMode": "AutoParse"
-            },
-            "searchSchedule": null,
-            "description": ""
         }
+       
     
     ]
 }

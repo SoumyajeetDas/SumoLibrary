@@ -123,7 +123,8 @@
 			"name": "For Weather",
 			"description": "",
 			"path": [
-				"\\\\seavvapmgrprb01\\Log\\FOGS"
+				"\\\\seavvapmgrprb01\\Log\\FOGS",
+				"\\\\tukvvapmDrpb01\\Log\\FOGS"
 				
 			]
 		}

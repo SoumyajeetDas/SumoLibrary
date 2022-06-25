@@ -12,10 +12,10 @@
 		{
 			"name": "AppInsight Query For Weather API",
 			"path": [
-				"Transaction Search -->\nhttps://portal.azure.com/#@alaskaair.onmicrosoft.com/resource/subscriptions/e77dda64-c055-4785-b469-f3f47f252028/resourceGroups/foweatherdata-prod-group/providers/microsoft.insights/components/foweatherdata-appinsight-prod/searchV1",
-				"For Failures-->\nhttps://portal.azure.com/#@alaskaair.onmicrosoft.com/resource/subscriptions/e77dda64-c055-4785-b469-f3f47f252028/resourceGroups/foweatherdata-prod-group/providers/microsoft.insights/components/foweatherdata-appinsight-prod/failures"
+				"https://portal.azure.com/#@alaskaair.onmicrosoft.com/resource/subscriptions/e77dda64-c055-4785-b469-f3f47f252028/resourceGroups/foweatherdata-prod-group/providers/microsoft.insights/components/foweatherdata-appinsight-prod/searchV1",
+				"https://portal.azure.com/#@alaskaair.onmicrosoft.com/resource/subscriptions/e77dda64-c055-4785-b469-f3f47f252028/resourceGroups/foweatherdata-prod-group/providers/microsoft.insights/components/foweatherdata-appinsight-prod/failures"
 			],
-			"note": "For Transaction Search Click on Exception for Event Type. We can also give the Querys as (504) Gateway Timeout"
+			"note": "The first link is for the Transaction Search and the second link is for the Failure"
 		},
 		{
 			"name": "App Insight Query for WAM Performance Data Error and Info for AS and QX",
@@ -32,6 +32,14 @@
 				"Jeppesen websvc connection"
 			],
 			"note": "In FlightPlanSvc/FlightPlanRequest Property=Request Response Code 400 --> This property is not working now and will be updated and Jeppesen WebSvc Connection gives info about the JEP Down Issue"
+		},
+		{
+			"name": "App Insight Query for Jeppeson Down",
+			"path": [
+				"https://portal.azure.com/#@0f44c5d4-42b0-45c2-bf55-d0fea8430d33/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/resourceId/%2Fsubscriptions%2Fe77dda64-c055-4785-b469-f3f47f252028%2FresourceGroups%2Ffogswam-prod-group%2Fproviders%2Fmicrosoft.insights%2Fcomponents%2Ffogswamwebsvc-prod-appinsights/source/LogsBlade.AnalyticsShareLinkToQuery/q/H4sIAAAAAAAAA03MMQoCMRBG4T6nGHKBHEKwWkSMvQyzP5tAdqKZiTYeXjstX%252FE9Hyyw8KZXwQDtMOMNJF2dqxrFQ59tJe1OMsAOynlJ1yWTQeZXSGFVtEisK%252FU7Bnvtejvx%252Fn85troVPzfW%252FJT0qwseE%252BYphvABhjv27ooAAAA%253D/timespan/P3D"
+	
+			],
+			"note": "Shows Error Message for Jepesson"
 		}
 		
 	]
