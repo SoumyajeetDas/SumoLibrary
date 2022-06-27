@@ -133,10 +133,10 @@ body {
 }
 }
 
-.menulists a{
+/* .menulists a{
   text-decoration: none;
   color:white;
-}
+} */
 
 
 
@@ -169,10 +169,10 @@ body {
   }
 }
 
-.menulists1 a{
+/* .menulists1 a{
   text-decoration: none;
   color:white;
-}
+} */
 
 .menulists2{
   display:none;
@@ -182,9 +182,12 @@ body {
   display:flex;
   justify-content:flex-start;
   align-items:center;
+  padding:0.8rem;
+  transition: all 0.3s;
 }
 
-.menuitems:hover, .menuitems:hover *{
+.menuitems:hover{
+  justify-content:center;
   background-color: #FFAEAE;
   border-radius: 10px;
   color:#7d8da1;
