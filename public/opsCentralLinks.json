@@ -185,11 +185,11 @@
 		},
 		{
 			"name": "Jetstream , Missing Weather/No Thru Wax",
-			"path": "http://fogscentral.insideaag.com/JetstreamServersDown.ashx"
+			"path": "http://fogscentral.insideaag.com/Jetstream-Missing-Weather.ashx"
 		},
 		{
 			"name": "Jetstream Servers Down",
-			"path": "http://fogscentral.insideaag.com/Jetstream-Missing-Weather.ashx"
+			"path": "http://fogscentral.insideaag.com/JetstreamServersDown.ashx"
 		},
 		{
 			"name": "JAWS",
