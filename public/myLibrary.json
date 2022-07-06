@@ -287,6 +287,21 @@
             },
             "searchSchedule": null,
             "description": ""
+        },
+        {
+            "type": "SavedSearchWithScheduleSyncDefinition",
+            "name": "N284AK Tail APU 34 Message Issue (17-Jan-2022)",
+            "search": {
+                "queryText": "_sourceCategory=Tibco_BW_Audit ME_EngineEvents_Subscriber  N284AK",
+                "defaultTimeRange": "-15m",
+                "byReceiptTime": false,
+                "viewName": "",
+                "viewStartTime": "1970-01-01T00:00:00Z",
+                "queryParameters": [],
+                "parsingMode": "AutoParse"
+            },
+            "searchSchedule": null,
+            "description": ""
         }
        
     

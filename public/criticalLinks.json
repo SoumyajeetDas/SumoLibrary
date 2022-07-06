@@ -63,7 +63,15 @@
             "path": "https://alaskaair.sharepoint.com/sites/SysDocs/SysDoc/Forms/ModernSP.aspx?sortField=LinkFilename&isAscending=false&viewid=7e5f878c%2D26da%2D4602%2Dae35%2D14a8b0d20386&id=%2Fsites%2FSysDocs%2FSysDoc%2FWeather",
 			"smes": "Steven Potter",
 			"vendors": "IBM/Weather aka The Weather Company aka TWC (other names WSI, WSI Fusion, F&F, Field & Facilities)"
+        },
+        
+        {
+            "name": "Jobs",
+            "path": "http://fogscentral.insideaag.com/AllPages.aspx?Cat=Batch%20Jobs",
+			"smes": "N/A",
+			"vendors": "N/A"
         }
+        
 
 
     ]
