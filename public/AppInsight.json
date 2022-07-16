@@ -10,10 +10,17 @@
 			"note": "aerodata_tlr_request_flight# should be used in fogswamwebsvc-prod-appinsights Only for QX and requested for flightplan flt# should be used in fogswamwebui-prod-appinsights"
 		},
 		{
-			"name": "AppInsight Query For Weather API",
+			"name": "AppInsight Url For Weather API",
 			"path": [
 				"https://portal.azure.com/#@alaskaair.onmicrosoft.com/resource/subscriptions/e77dda64-c055-4785-b469-f3f47f252028/resourceGroups/foweatherdata-prod-group/providers/microsoft.insights/components/foweatherdata-appinsight-prod/searchV1",
 				"https://portal.azure.com/#@alaskaair.onmicrosoft.com/resource/subscriptions/e77dda64-c055-4785-b469-f3f47f252028/resourceGroups/foweatherdata-prod-group/providers/microsoft.insights/components/foweatherdata-appinsight-prod/failures"
+			],
+			"note": "The first link is for the Transaction Search and the second link is for the Failure"
+		},
+		{
+			"name": "AppInsight Url For Weather API Dashboard",
+			"path": [
+				"https://portal.azure.com/#@alaskaair.onmicrosoft.com/dashboard/arm/subscriptions/10f1c4a0-126e-4823-82b4-24c63e52c264/resourceGroups/dashboards/providers/Microsoft.Portal/dashboards/8291c9be-52c7-4dd8-b6f5-a9fcb1118467"
 			],
 			"note": "The first link is for the Transaction Search and the second link is for the Failure"
 		},
