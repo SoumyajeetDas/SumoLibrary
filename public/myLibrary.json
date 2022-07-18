@@ -7,7 +7,7 @@
             "type": "SavedSearchWithScheduleSyncDefinition",
             "name": "AircomeWebSvcInvokerSvc",
             "search": {
-                "queryText": "_sourceHost=*vvapp22 and \"AircomWebSvcInvokerSvc\" and (*error* or *fail*)",
+                "queryText": "_sourceHost=*vvapp22 and \"AircomWebSvcInvokerSvc\" and (*error* or *fail* or *exception*)",
                 "defaultTimeRange": "-15m",
                 "byReceiptTime": false,
                 "viewName": "",
@@ -37,7 +37,7 @@
             "type": "SavedSearchWithScheduleSyncDefinition",
             "name": "CDMFeederSvc Error",
             "search": {
-                "queryText": "_sourceHost=tukvvapp22  _sourceName = *CDMFeederSvc* and (error or *fail*)",
+                "queryText": "_sourceHost=*vvapp22 _sourceName = *CDMFeederSvc* and (*error* or *fail* or *exception*)",
                 "defaultTimeRange": "-15m",
                 "byReceiptTime": false,
                 "viewName": "",
@@ -127,7 +127,7 @@
             "type": "SavedSearchWithScheduleSyncDefinition",
             "name": "JetStreamSvc Error",
             "search": {
-                "queryText": "_sourceHost=*vvfogsapp2 _sourceName=*JetStreamSvc* and (*error* or *fail*)",
+                "queryText": "_sourceHost=*vvfogsapp2 _sourceName=*JetStreamSvc* and (*error* or *fail* or *exception*)",
                 "defaultTimeRange": "-15m",
                 "byReceiptTime": false,
                 "viewName": "",
@@ -232,7 +232,7 @@
             "type": "SavedSearchWithScheduleSyncDefinition",
             "name": "PilotBriefingCCW Error",
             "search": {
-                "queryText": "_sourceHost=*vvfogsapp2 _sourceName=*PilotBriefingCCW* and (*error* or *fail*)",
+                "queryText": "_sourceHost=*vvfogsapp2 _sourceName=*PilotBriefingCCW* and (*error* or *fail* or *exception*)",
                 "defaultTimeRange": "-15m",
                 "byReceiptTime": false,
                 "viewName": "",
@@ -262,7 +262,7 @@
             "type": "SavedSearchWithScheduleSyncDefinition",
             "name": "The Maker Error",
             "search": {
-                "queryText": "_sourceHost=*vvfogsapp2 _sourceName=*TheMaker* and (*error* or *fail*)",
+                "queryText": "_sourceHost=*vvfogsapp2 _sourceName=*TheMaker* and (*error* or *fail* or *exception*)",
                 "defaultTimeRange": "-15m",
                 "byReceiptTime": false,
                 "viewName": "",
@@ -277,7 +277,7 @@
             "type": "SavedSearchWithScheduleSyncDefinition",
             "name": "UpdServer Error",
             "search": {
-                "queryText": "_sourceHost=*vvfogsapp2 and _sourceName = *UpdServer* and (*error* or *fail*)",
+                "queryText": "_sourceHost=*vvfogsapp2 and _sourceName = *UpdServer* and (*error* or *fail* or *exception*)",
                 "defaultTimeRange": "-15m",
                 "byReceiptTime": false,
                 "viewName": "",
