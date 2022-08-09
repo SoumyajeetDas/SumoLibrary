@@ -4,6 +4,7 @@ export default function linkItem(props) {
 
     return (
         <>
+            {/* Adding h-100 in the class to make all the cards of the same height */}
             <div className="card h-100 p-3" style={props.cardColor}>
                 <div className="card-body" style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
                     <h1 id="card-title" className="card-title text-center mb-4">{props.data.name}</h1>

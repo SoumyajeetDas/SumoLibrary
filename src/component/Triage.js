@@ -3,7 +3,8 @@ import LinkItems from './LinkItems';
 
 export default function TriageContent(props) {
 
-  const [query, setQuery] = useState([])
+  const [query, setQuery] = useState([]);
+  const [apiStatus, setApiStatus] = useState(200);
 
   async function FetchData() {
 
@@ -23,27 +24,49 @@ export default function TriageContent(props) {
 
     let data = await fetch(url);
 
-    let dataJson = await data.json();
 
-    setQuery(dataJson.data.triage);
+    if (data.status === 200) {
+
+      let dataJson = await data.json();
+
+      setQuery(dataJson.data.triage);
+    }
+    else {
+
+      // If the status is anything other than 200 like 500, 404 504 then status state will be updated and accordingly the 
+      // alert box will also be shown and the logic is written in the down JSX part.
+      setApiStatus(data.status);
+    }
   }
 
   useEffect(() => {
     FetchData();
-  },[])
+  }, [])
 
 
   return (
     <>
 
-      <div className="container">
+      <div className="container my-3">
         <div className="row">
 
-          {query.map((data) =>
-            <div key={data.name} className="col-md-4 my-5">
-              <LinkItems data={data} cardColor={props.cardColor} />
+
+          {/* First check if the array is empty or not and as well check if the status is 200 or not. If the array is emplty and the 
+          status is also different other than 200 then only alert will be shown*/}
+
+          {query.length === 0 && apiStatus!==200 ?
+
+            <div class="alert alert-danger text-center" role="alert">
+              <strong>Something went wrong in the backend !! Please reload the webpage.</strong>
             </div>
-          )}
+
+            :
+
+            query.map((data) =>
+              <div key={data.name} className="col-md-4 my-5">
+                <LinkItems data={data} cardColor={props.cardColor} />
+              </div>
+            )}
 
         </div>
       </div>
