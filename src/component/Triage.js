@@ -6,18 +6,26 @@ export default function TriageContent(props) {
   const [query, setQuery] = useState([])
 
   async function FetchData() {
-    let data = await fetch('./triageLink.json'
-      , {
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
-      }
-    );
+
+    /*****************************File System****************************************/
+    // let data = await fetch('./triageLink.json'
+    //   , {
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Accept': 'application/json'
+    //     }
+    //   }
+    // );
+
+    /*****************************DB System****************************************/
+
+    let url = 'https://flightops.vercel.app/api/v1/fops/contents/triage'
+
+    let data = await fetch(url);
 
     let dataJson = await data.json();
 
-    setQuery(dataJson.links);
+    setQuery(dataJson.data.triage);
   }
 
   useEffect(() => {
