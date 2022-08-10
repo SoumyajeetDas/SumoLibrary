@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import LinkItems from './LinkItems';
+import Spinner from './Spinner';
+
 
 export default function TriageContent(props) {
 
   const [query, setQuery] = useState([]);
   const [apiStatus, setApiStatus] = useState(200);
+  const [loading, setLoading] = useState(true);
+
 
   async function FetchData() {
 
@@ -19,6 +23,7 @@ export default function TriageContent(props) {
     // );
 
 
+    
     /*****************************DB System*****************************/
 
 
@@ -32,15 +37,24 @@ export default function TriageContent(props) {
     else {
 
       // If the status is anything other than 200 like 500, 404 504 then status state will be updated and accordingly the 
-      // alert box will also be shown and the logic is written in the down JSX part.
+      // alert will also be shown and the logic is written in the down JSX part.
       setApiStatus(data.status);
     }
+
+
+    // setLoading() can't be kept after FetchData() in use Effcet. As the fetchData() is async after calling out the api the control
+    // comes out of the function and thus making setLoading(false) and hence we will not be able to see the spinner.
+    setLoading(false);
+
 
     // If the status is other than 200 then automatically the query array will be an empty array
   }
 
   useEffect(() => {
+
     FetchData();
+
+    // setLoading(false);
   }, [])
 
 
@@ -49,6 +63,10 @@ export default function TriageContent(props) {
 
       <div className="container my-3">
         <div className="row">
+
+
+          {loading && <Spinner/>}
+
 
 
           {/* First check if the array is empty or not and as well check if the status is 200 or not. If the array is emplty and the 

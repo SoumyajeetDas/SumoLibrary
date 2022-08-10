@@ -193,3 +193,10 @@ body {
   color:#7d8da1;
 
 }
+
+
+#spinner{
+  display:flex;
+  justify-content:center;
+  margin-top:8rem;
+}
