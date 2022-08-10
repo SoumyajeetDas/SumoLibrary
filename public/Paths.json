@@ -22,21 +22,18 @@
 		},
 		{
 			"name": "Logs for AircomWebSvcInvokerSvc",
-			"description": "",
 			"path": [
 				"\\\\seavvapp22\\Log\\FOGS\\AircomWebSvcInvokerSvc"
 			]
 		},
 		{
 			"name": "Takeoff and Landing for QX",
-			"description": "",
 			"path": [
 				"\\\\fltopsfs.alaskaair.com\\FLTOPS\\fltdata\\perf_files"
 			]
 		},
 		{
 			"name": "For FlighPlanSvc",
-			"description": "",
 			"path": [
 				"\\\\SEAVVAPP22\\Log\\FO\\FlightPlanSvc",
 				"\\\\TUKVVAPP22\\Log\\FO\\FlightPlanSvc"
@@ -44,28 +41,24 @@
 		},
 		{
 			"name": "For CDMFeederSvc",
-			"description": "",
 			"path": [
 				"\\\\TUKVVAPP2\\Log\\FOGS\\CDMFeederSvc"
 			]
 		},
 		{
 			"name": "For UpdFlifoSvc",
-			"description": "",
 			"path": [
 				"\\\\seavvapp10\\Log\\FOGS\\UpdFlifoSvc"
 			]
 		},
 		{
 			"name": "For FlifoTimes",
-			"description": "",
 			"path": [
 				"\\\\seadvfltopdna01\\Log\\FOGS\\FlifoTimes"
 			]
 		},
 		{
 			"name": "For UpdServer",
-			"description": "",
 			"path": [
 				"\\\\seavvfogsapp2\\Log\\FOGS\\UpdServer",
 				"\\\\tukvvfogsapp2\\Log\\FOGS\\UpdServer"
@@ -73,7 +66,6 @@
 		},
 		{
 			"name": "For TheMaker",
-			"description": "",
 			"path": [
 				"\\\\SEAVVFOGSAPP2\\Log\\FOGS\\TheMaker",
 				"\\\\TUKVVFOGSAPP2\\Log\\FOGS\\TheMaker"
@@ -81,7 +73,6 @@
 		},
 		{
 			"name": "For FOGSBroker ",
-			"description": "",
 			"path": [
 				"\\\\SEAVVFOGSAPP2\\Log\\FOGS\\FOGSBroker",
 				"\\\\TUKVVFOGSAPP2\\Log\\FOGS\\FOGSBroker"
@@ -89,7 +80,6 @@
 		},
 		{
 			"name": "For AUChangeSvc",
-			"description": "",
 			"path": [
 				"\\\\SEAVVFOGSAPP2\\Log\\FOGS\\AUChangeSvc",
 				"\\\\TUKVVFOGSAPP2\\Log\\FOGS\\AUChangeSvc"
@@ -97,7 +87,6 @@
 		},
 		{
 			"name": "For ASFltRangeSvc",
-			"description": "",
 			"path": [
 				"\\\\SEAVVFOGSAPP2\\Log\\FOGS\\ASFltRangeSvc",
 				"\\\\TUKVVFOGSAPP2\\Log\\FOGS\\ASFltRangeSvc"
@@ -105,7 +94,6 @@
 		},
 		{
 			"name": "For JetStreamSvc",
-			"description": "",
 			"path": [
 				"\\\\SEAVVFOGSAPP2\\Log\\FOGS\\JetStreamSvc",
 				"\\\\TUKVVFOGSAPP2\\Log\\FOGS\\JetStreamSvc"
@@ -113,7 +101,6 @@
 		},
 		{
 			"name": "For PilotBriefingCCW",
-			"description": "",
 			"path": [
 				"\\\\SEAVVFOGSAPP2\\Log\\FOGS\\PilotBriefingCCW",
 				"\\\\TUKVVFOGSAPP2\\Log\\FOGS\\PilotBriefingCCW"
@@ -121,7 +108,6 @@
 		},
 		{
 			"name": "For Weather",
-			"description": "",
 			"path": [
 				"\\\\seavvapmgrprb01\\Log\\FOGS",
 				"\\\\tukvvapmDrpb01\\Log\\FOGS"
