@@ -71,7 +71,7 @@ export default function PathContent(props) {
 
   return (
     <>
-      <div className="container">
+      <div className="container my-3">
         <div className="row">
 
 
