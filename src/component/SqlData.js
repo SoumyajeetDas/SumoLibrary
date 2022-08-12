@@ -26,7 +26,7 @@ export default function SqlContent(props) {
     /*****************************DB System*****************************/
 
 
-    const data = await fetch('https://flightops.vercel.app/api/v1/fops/contents/dbQuer')
+    const data = await fetch('https://flightops.vercel.app/api/v1/fops/contents/dbQuery')
 
 
     if (data.status === 200) {
