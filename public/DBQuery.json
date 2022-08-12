@@ -22,7 +22,6 @@
 		},
 		{
 			"name": "Sabre Swap Issue",
-			"description": "",
 			"path": [
 				"SELECT\nf.flt, f.identity, f.orig, f.dest, f.zulu_setd, f.l_date, t.pax_f_max, (t.pax_y_max + t.pax_yc_max), f.pallet,\nt.vmeqtype,t.res_fleet_type,t.aircraftreg\nFROM swapaudit\nINNER JOIN fltseg f ON f.identity = s.fltsegid\nINNER JOIN dptails t ON t.aircraftreg = f.aircraftreg AND t.airline = f.ac\nWHERE\nf.ac = 'AS'\nAND t.vmeqtype == ''\nAND f.flt_orig_date = '02/25/22'\nAND (f.opstype NOT IN('CXL', 'OVR', 'RET') OR f.opstype IS NULL)AND s.fleetchange = 'Y'\nAND (s.res_notified IS NULL OR s.res_notified = 'N')\nORDER BY f.ac, f.flt, f.zulu_etd, s.identity\n--AND f.flt = 121 AND f.aircraftreg = 'N928AK'\n--AND f.aircraftreg = 'N933AK'\n",
 				"select vmeqtype ,res_fleet_type,aircraftreg ,* from dptails where vmeqtype =''"
@@ -30,7 +29,6 @@
 		},
 		{
 			"name": "WebSendTimes Delay Mismatch",
-			"description": "",
 			"path": [
 				"select * from delayhistory where fltsegid=",
 				"select * from subdelays where fltsegid=",
@@ -43,7 +41,6 @@
 
 		{
 			"name": "Fltseg Table Update",
-			"description": "",
 			"path": [
 				"update fltseg set l_date='26MAY' where l_date='25MAY' and identity=6620836 and routeid=28902552",
 				"insert into fltseg(routeid, flt, op_suffix,leg1, orig, l_date, z_date, etd, dest, eta, vtime, desk, shift, etd24, eta24, vt24, acft, actype,line_no, pallet, pbt, frt, pl_pld, pl_tow, pl_burn, pl_enrt, tfburn, pl_alt1, pl_alt2, alt1, alt2,\n t_out, t_off, t_on, t_in, tfob, afob, d_delay, tow, burn,enrt, c_enrt, c_burn, send, done, cxltime, notes, rc1, rc2, rc3, rc4, keyword, min_f, lp, tanker, icao, fptype, colors, who, lgw, gate, agent, fueler, setd, seta, irrops,\n  opstype, opsreas, leg, occur_orig, occur_dest, etstatus, ac, wxfile, gate_in, agent_in, arctic, flifo, localdate, timesource, cycles, ice_priority, ice_status, ice_edc, pax_f, pax_y, lastupdate, fly_faster, crew_called_in, delay_code,\n  gallons_added, at_out, at_off, at_on, at_in, flags, cm_name, crew_qual, pl_tanker, atc, sabre_upd_tm, toa, pl_toa, perf_report, star_flt, board_status, zulu_setd, zulu_seta, zulu_etd, zulu_eta, zulu_out, zulu_off, zulu_on,\n  zulu_in, zulu_vt, mkt_airline, req_frt, pld_frt, flt_orig_date, sched_orig, sched_dest, sched_iata_type, sched_configver, flics_feed_ind, zulu_pax_setd, zulu_pax_seta, release_tow, pl_mel_fuel, pl_delay_fuel, pl_biz_fuel,\n  mel_fuel, delay_fuel, biz_fuel, released_pbt, restricted, crew_in, crew_out, deplaned, mto_fuel, pilot_add_fuel, tanker_extra, pl_zfw, zfw, zulu_crew_eta, watch, aircraftreg)\n values(28902552, '2043', null, null, 'FAI', '24May', '220524', 1650, 'SCC', 1757, 1450, '6', '6', 1650, 1757, 1450, '630', '66', null, 0, 66, null, 16.2, 78.6, 3.6, 0.58, 32, 'ANC', 'FAI', 'ANC', 'FAI', 1640, 1654, 1756, 1758, 12.1,\n 8, 0, 77.4, 4.1, 1.02, 4, 0.06, null, 'Y', null, null, 1453, null, null, null, null, 121, '122', '415', 'I', 'P', null, 'C', '0', null, null, null, 1650, 1800, 'A', 'ADD', null, 2, 1, 1, null, 'QX', 'QXFAISCC.WX', 1, null, 'N', null, null, 'ACARS',\n 1, null, null, null, 12, 54, null, null, null, null, null, 1640, 1654, 1756, 1758, 0, 'RUTH Dustin', 'HRAM', null, 'S', null, null, null, null, null, 'PDC*', null, null, null, null, null, null, null, null, null, 'AS', null, 0, null, 'FAI', 'SCC',\n null, null, 2, null, null, 78.6, null, null, null, null, 4.15, 0, 67, null, null, null, 0, 117, 0, 0, 0, 0, null, 0,'N630QX')"
