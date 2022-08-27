@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import SevItem from './SevItem';
-import Spinner from './Spinner';
+import SevItem from '../item/SevItem';
+import Spinner from '../maindata/Spinner';
 import { useNavigate } from 'react-router-dom'
 
 

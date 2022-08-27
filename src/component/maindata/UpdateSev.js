@@ -206,12 +206,12 @@ export default function AddSev(props) {
     }
 
     useEffect(() => {
-        
+
         LoadData();
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
 
-    })
+    }, // eslint-disable-next-line
+    [])
 
     return (
         <>

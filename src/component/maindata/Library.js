@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import QueryItem from './QueryItem.js'
+import QueryItem from '../item/QueryItem'
 import Spinner from './Spinner.js';
 
 

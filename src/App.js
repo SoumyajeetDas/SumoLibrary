@@ -1,20 +1,20 @@
 import './App.css';
 import Navbar from './component/Navbar';
 import React, { useState } from 'react'
-import Library from './component/Library.js'
-import PathData from './component/Paths.js'
-import AppInsight from './component/AppInsightData.js'
-import SqlData from './component/SqlData.js'
-import Triage from './component/Triage.js'
-import OpsCentral from './component/OpsCentral.js'
-import Criticalsystem from './component/CriticalSystem.js';
-import Content from './component/Content.js';
+import Library from './component/maindata/Library'
+import PathData from './component/maindata/Paths.js'
+import AppInsight from './component/maindata/AppInsightData.js'
+import SqlData from './component/maindata/SqlData.js'
+import Triage from './component/maindata/Triage.js'
+import OpsCentral from './component/maindata/OpsCentral.js'
+import Criticalsystem from './component/maindata/CriticalSystem.js';
+import Content from './component/maindata/Content';
 import Menus from './component/Menus';
-import Sev from './component/Sev';
-import AddSev from './component/AddSev';
-import UpdateSev from './component/UpdateSev';
+import Sev from './component/maindata/Sev';
+import AddSev from './component/maindata/AddSev';
+import UpdateSev from './component/maindata/UpdateSev';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Stat from './component/Stat';
+import Stat from './component/maindata/Stat';
 
 
 

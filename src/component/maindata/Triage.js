@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import LinkItems from './LinkItems';
+import LinkItems from '../item/LinkItems';
 import Spinner from './Spinner';
 
 export default function TriageContent(props) {

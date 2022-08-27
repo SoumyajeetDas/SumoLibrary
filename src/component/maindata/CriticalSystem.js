@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import LinkItems from './LinkItems';
-import Spinner from './Spinner';
+import CriticalSystemLink from '../item/CriticalSystemLinks.js'
+import Spinner from './Spinner.js';
 
-
-export default function TriageContent(props) {
+export default function CentralOpsContent(props) {
 
   const [query, setQuery] = useState([]);
   const [apiStatus, setApiStatus] = useState(200);
@@ -13,7 +12,7 @@ export default function TriageContent(props) {
   async function FetchData() {
 
     /*****************************File System*****************************/
-    // let data = await fetch('./opsCentralLinks.json'
+    // let data = await fetch('./criticalLinks.json'
     //   , {
     //     headers: {
     //       'Content-Type': 'application/json',
@@ -23,19 +22,17 @@ export default function TriageContent(props) {
     // );
 
 
-    
     /*****************************DB System*****************************/
 
+    const data = await fetch('https://flightops.vercel.app/api/v1/fops/contents/criticalsystem');
 
-    let data = await fetch('https://flightops.vercel.app/api/v1/fops/contents/opsCentral');
 
     if (data.status === 200) {
       let dataJson = await data.json();
 
-      setQuery(dataJson.data.opsCentral);
+      setQuery(dataJson.data.criticalSystem);
     }
     else {
-
       // If the status is anything other than 200 like 500, 404 504 then status state will be updated and accordingly the 
       // alert will also be shown and the logic is written in the down JSX part.
       setApiStatus(data.status);
@@ -51,7 +48,6 @@ export default function TriageContent(props) {
   }
 
   useEffect(() => {
-
     FetchData();
 
     // setLoading(false);
@@ -65,8 +61,7 @@ export default function TriageContent(props) {
         <div className="row">
 
 
-          {loading && <Spinner/>}
-
+          {loading && <Spinner />}
 
 
           {/* First check if the array is empty or not and as well check if the status is 200 or not. If the array is emplty and the 
@@ -82,7 +77,7 @@ export default function TriageContent(props) {
 
             query.map((data) =>
               <div key={data.name} className="col-md-4 my-5">
-                <LinkItems data={data} cardColor={props.cardColor} />
+                <CriticalSystemLink data={data} cardColor={props.cardColor} />
               </div>
             )}
 

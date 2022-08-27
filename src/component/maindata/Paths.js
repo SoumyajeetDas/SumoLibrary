@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import PathItem from './PathItem.js'
+import React, { useState, useEffect } from 'react'
+import PathItem from '../item/PathItem.js'
 import Spinner from './Spinner.js';
 
-
-export default function SqlContent(props) {
+export default function PathContent(props) {
 
   const [query, setQuery] = useState([]);
   const [apiStatus, setApiStatus] = useState(200);
   const [loading, setLoading] = useState(true);
 
-  async function FetchData() {
+  async function Fetchdata() {
 
     /*****************************File System*****************************/
-    // let data = await fetch('./DBQuery.json'
+    // let data = await fetch('./Paths.json'
     //   , {
     //     headers: {
     //       'Content-Type': 'application/json',
@@ -22,40 +21,40 @@ export default function SqlContent(props) {
     // );
 
 
-
     /*****************************DB System*****************************/
 
-
-    const data = await fetch('https://flightops.vercel.app/api/v1/fops/contents/dbQuery')
-
+    let data = await fetch('https://flightops.vercel.app/api/v1/fops/contents/paths')
 
     if (data.status === 200) {
       let dataJson = await data.json();
 
-      setQuery(dataJson.data.dbQuery);
-    }
+      setQuery(dataJson.data.path);
 
+    }
     else {
-      setApiStatus(data.status)
+
+
+      // If the status is anything other than 200 like 500, 404 504 then status state will be updated and accordingly the 
+      // alert will also be shown and the logic is written in the down JSX part.
+      setApiStatus(data.status);
     }
 
 
     // setLoading() can't be kept after FetchData() in use Effcet. As the fetchData() is async after calling out the api the control
     // comes out of the function and thus making setLoading(false) and hence we will not be able to see the spinner.
-    setLoading(false)
-
+    setLoading(false);
 
 
     // If the status is other than 200 then automatically the query array will be an empty array
 
   }
 
-
   useEffect(() => {
-    FetchData();
+    Fetchdata();
 
     // setLoading(false);
   }, [])
+
 
   async function copyQuery(id1, id2) {
 
@@ -70,10 +69,8 @@ export default function SqlContent(props) {
   }
 
 
-
   return (
     <>
-
       <div className="container my-3">
         <div className="row">
 
@@ -87,18 +84,18 @@ export default function SqlContent(props) {
 
           {query.length === 0 && apiStatus !== 200 ?
 
-            <div className="alert alert-danger text-center" role="alert">
+            <div class="alert alert-danger text-center" role="alert">
               <strong>Something went wrong in the backend !! Please reload the webpage.</strong>
             </div>
 
             :
 
             query.map((data) =>
-
               <div key={data.name} className="col-12 my-5">
-                <PathItem key={data.name} data={data} copyQuery={copyQuery} cardColor={props.cardColor} />
+                <PathItem data={data} copyQuery={copyQuery} cardColor={props.cardColor} />
               </div>
             )}
+
         </div>
       </div>
     </>
