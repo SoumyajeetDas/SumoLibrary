@@ -80,7 +80,7 @@ export default function AppInsightContent(props) {
           status is also different other than 200 then only alert will be shown*/}
           {query.length === 0 && apiStatus !== 200 ?
 
-            <div class="alert alert-danger text-center" role="alert">
+            <div className="alert alert-danger text-center" role="alert">
               <strong>Something went wrong in the backend !! Please reload the webpage.</strong>
             </div>
 

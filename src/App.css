@@ -105,19 +105,19 @@ body {
 
 .menulists {
   position: fixed;
-  left:-100;
-  bottom:100px;
-  background-color: rgb(255,119,130,0.8);
+  left: -100;
+  bottom: 100px;
+  background-color: rgb(255, 119, 130, 0.8);
   border-radius: 10px;
   padding: 10px;
   cursor: pointer;
-  color:white;
+  color: white;
   font-family: 'Libre Bodoni', serif;
   font-family: 'Source Serif Pro', serif;
   z-index: 2;
   animation-name: slide;
-  animation-duration:0.4s;
-  animation-timing-function:linear;
+  animation-duration: 0.4s;
+  animation-timing-function: linear;
   animation-fill-mode: forwards;
   font-size: 17px;
   text-decoration: none;
@@ -125,12 +125,12 @@ body {
 
 @keyframes slide {
   from {
-      left:-10%
+    left: -10%
   }
-  
-  to{
-    left:5px;
-}
+
+  to {
+    left: 5px;
+  }
 }
 
 /* .menulists a{
@@ -140,32 +140,32 @@ body {
 
 
 
-.menulists1{
+.menulists1 {
   position: fixed;
-  left:5px;
-  bottom:100px;
-  background-color: rgb(255,119,130,0.8);
+  left: 5px;
+  bottom: 100px;
+  background-color: rgb(255, 119, 130, 0.8);
   border-radius: 10px;
   padding: 10px;
   cursor: pointer;
-  color:white;
+  color: white;
   font-family: 'Libre Bodoni', serif;
   font-family: 'Source Serif Pro', serif;
   z-index: 2;
   animation-name: slide1;
-  animation-duration:1s;
-  animation-timing-function:ease-in-out;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
   font-size: 17px;
 }
 
 @keyframes slide1 {
   from {
-      left:5px
+    left: 5px
   }
 
-  to{
-      left:-100%;
+  to {
+    left: -100%;
   }
 }
 
@@ -174,29 +174,116 @@ body {
   color:white;
 } */
 
-.menulists2{
-  display:none;
+.menulists2 {
+  display: none;
 }
 
-.menuitems{
-  display:flex;
-  justify-content:flex-start;
-  align-items:center;
-  padding:0.9rem;
+.menuitems {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.9rem;
   transition: all 0.3s;
 }
 
-.menuitems:hover{
-  justify-content:center;
+.menuitems:hover {
+  justify-content: center;
   background-color: #FFAEAE;
   border-radius: 10px;
-  color:#7d8da1;
+  color: #7d8da1;
 
 }
 
 
-#spinner{
-  display:flex;
-  justify-content:center;
-  margin-top:8rem;
+#spinner {
+  display: flex;
+  justify-content: center;
+  margin-top: 8rem;
+}
+
+.ticknos {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  font-family: 'DM Serif Display', serif;
+  color: #FFAEAE;
+}
+
+.addTicket{
+  position: fixed;
+  bottom: 120px;
+  right: 5px; 
+  z-index:2,;
+  border: 3px dashed #7388ec;
+  color: #7388ec;
+  border-radius: 15px; 
+  background-color: transparent; 
+  padding: 0.7rem;
+  display: flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.btnStat{
+  position: fixed;
+  bottom: 50px;
+  right: 5px; 
+  z-index:2,;
+  border: 3px dashed #7388ec;
+  color: #7388ec;
+  border-radius: 15px; 
+  background-color: transparent; 
+  padding: 0.7rem;
+  display: flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+
+
+.formHeading{
+  color: #7388ec;
+  font-family: 'Source Serif Pro', serif;
+}
+
+.form-label{
+  color:#FFC300;
+  font-weight: bold;
+  font-size:1.2rem;
+  font-family: 'Libre Bodoni', serif;
+  /* font-family: 'Source Serif Pro', serif; */
+}
+
+#title, #ticketNo, #miNo, #appType, #tickType, #timeOccured, #description, #link{
+  color: teal;
+  background-color: transparent;
+  box-shadow: 4px 10px 10px 2px rgb(132, 139, 200, 0.18);
+  font-style: oblique;
+  border:none;
+}
+
+
+.deletealert{
+  position:fixed;
+  width:300px;
+  top:50vh;
+  z-index: 2;
+  animation-name: delslide;
+  animation-duration: 0.4s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes delslide {
+  from {
+    right: -10%
+  }
+
+  to {
+    right: 0px;
+  }
+}
+
+#stat{
+  box-shadow: 4px 10px 10px 2px rgb(132, 139, 200, 0.18);
 }

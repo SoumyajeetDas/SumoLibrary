@@ -75,6 +75,12 @@ export default function Menus(props) {
                 {/* <Link to="/sumo">My Sumo</Link> */}
                 My Sumo
             </div>
+            <div className="menuitems" onClick={() => changes('/sev')}>
+                <span className="material-symbols-outlined">
+                    priority_high
+                </span>
+                Sevs
+            </div>
         </div>
     )
 }

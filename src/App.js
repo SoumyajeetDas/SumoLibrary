@@ -10,7 +10,12 @@ import OpsCentral from './component/OpsCentral.js'
 import Criticalsystem from './component/CriticalSystem.js';
 import Content from './component/Content.js';
 import Menus from './component/Menus';
+import Sev from './component/Sev';
+import AddSev from './component/AddSev';
+import UpdateSev from './component/UpdateSev';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Stat from './component/Stat';
+
 
 
 function App() {
@@ -68,7 +73,7 @@ function App() {
 
       <BrowserRouter>
         <Navbar toggleStyle={toggleStyle} lightToggle={lightToggle} darkToggle={darkToggle} toggle={toggle} navbar={navbar} toggling={toggling} />
-        <Menus classname={classname} setStatus={setStatus} show={show} />
+        <Menus classname={classname} show={show} />
         <Routes>
           <Route exact path="/" element={<Content cardColor={cardColor} />} />
           <Route exact path="/triage" element={<Triage cardColor={cardColor} />} />
@@ -78,6 +83,10 @@ function App() {
           <Route exact path="/paths" element={ <PathData cardColor={cardColor} />} />
           <Route exact path="/appinsight" element={ <AppInsight cardColor={cardColor} />} />
           <Route exact path="/sumo" element={ <Library cardColor={cardColor} />} />
+          <Route exact path="/sev" element={ <Sev cardColor={cardColor} />} />
+          <Route exact path="/addsev" element={ <AddSev cardColor={cardColor} />} />
+          <Route exact path="/updatesev" element={ <UpdateSev cardColor={cardColor} />} />
+          <Route exact path="/stat" element={ <Stat/>} />
         </Routes>
       </BrowserRouter>
 
