@@ -37,11 +37,11 @@ export default function SevItem(props) {
                 <div className="card-body" style={props.cardColor}>
                     <h1 id="card-title" className="card-title text-center mb-4">{props.data.title}</h1>
 
-                    <span className="material-symbols-rounded" style={{ cursor: "pointer", position: 'absolute', right: "41px", top: "15px", color: "#41f1b6" }} onClick={() => navigate("/updatesev", { state: props.data })}>
+                    <span className="material-symbols-rounded" style={{ cursor: "pointer", position: 'absolute', right: "41px", bottom: "16px", color: "#41f1b6" }} onClick={() => navigate("/updatesev", { state: props.data })}>
                         edit_square
                     </span>
 
-                    <span className="material-symbols-rounded text-danger" style={{ cursor: "pointer", position: 'absolute', right: "10px", top: "17px" }} onClick={() => deleteSev(props.data.miNos, props.data._id)}>
+                    <span className="material-symbols-rounded text-danger" style={{ cursor: "pointer", position: 'absolute', right: "10px", bottom: "14px" }} onClick={() => deleteSev(props.data.miNos, props.data._id)}>
                         delete
                     </span>
 
