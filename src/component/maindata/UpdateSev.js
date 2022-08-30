@@ -37,7 +37,7 @@ export default function AddSev(props) {
     const handleTitle = () => {
         if (title.length === 0) {
             setFlag(1)
-            setTitleError("Please provide a Ticket Number")
+            setTitleError("Please provide a Title")
         }
         else {
             setFlag(0)
