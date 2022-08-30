@@ -20,8 +20,6 @@ export default function AddSev(props) {
     const [ticketTypeError, setTicketTypeError] = useState(undefined);
     const [dateOccurError, setDateOccurError] = useState(undefined);
 
-    const [flag, setFlag] = useState(undefined);
-
     const [save, setSave] = useState(false);
 
     const [error, setError] = useState(false);
@@ -36,33 +34,27 @@ export default function AddSev(props) {
 
     const handleTitle = () => {
         if (title.length === 0) {
-            setFlag(1)
             setTitleError("Please provide a Title")
         }
         else {
-            setFlag(0)
             setTitleError('')
         }
     }
 
     const handleTicketNumber = () => {
         if (ticketNo.length === 0) {
-            setFlag(1)
             setTicketError("Please provide a Ticket Number or write N/A")
         }
         else {
-            setFlag(0)
             setTicketError("")
         }
     }
 
     const handleMi = () => {
         if (miNo.length === 0) {
-            setFlag(1)
             setMiError("Please provide a MI or write N/A")
         }
         else {
-            setFlag(0)
             setMiError("")
         }
     }
@@ -74,11 +66,9 @@ export default function AddSev(props) {
         // <option selected value="none">Select the type of Application</option>
 
         if (appType.length === 0 || appType === "none") {
-            setFlag(1)
             setAppTypeError("Please provide a App type")
         }
         else {
-            setFlag(0)
             setAppTypeError("")
         }
     }
@@ -88,25 +78,26 @@ export default function AddSev(props) {
         // again change it back to Select the type of application the value of tickType returned will be none() as given in the option.
         // <option selected value="none">Select the type of Ticket</option>
         if (tickType.length === 0 || tickType === "none") {
-            setFlag(1)
             setTicketTypeError("Please provide a Ticket Type")
         }
         else {
-            setFlag(0)
             setTicketTypeError("")
         }
     }
 
     const handleTimeOccured = () => {
         if (timeOccured.length === 0) {
-            setFlag(1)
             setDateOccurError("Please provide the date sev occured")
         }
         else {
-            setFlag(0)
             setDateOccurError("")
         }
     }
+
+
+
+
+    /******************** The checking function is called by the update button onClick Event ******************************/
 
     const checking = () => {
 
@@ -122,6 +113,8 @@ export default function AddSev(props) {
         handleTicketType();
         handleTimeOccured();
     }
+
+
 
     const updateTicket = async () => {
 
@@ -165,9 +158,14 @@ export default function AddSev(props) {
         }
     }
 
+
+
+
+    /*************** The submit function is called by the omSubmit event of form ***************/
+
     const submit = (e) => {
 
-        if (titleError==="" && ticketError===""  && miError===""  && appTypeError==="" && ticketTypeError===""  && dateOccurError===""  &&flag === 0) {
+        if (titleError === "" && ticketError === "" && miError === "" && appTypeError === "" && ticketTypeError === "" && dateOccurError === "") {
 
             updateTicket();
         }

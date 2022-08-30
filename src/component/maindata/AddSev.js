@@ -20,11 +20,9 @@ export default function AddSev(props) {
     const [ticketTypeError, setTicketTypeError] = useState(undefined);
     const [dateOccurError, setDateOccurError] = useState(undefined);
 
-    const [flag, setFlag] = useState(undefined);
-
     const [save, setSave] = useState(false);
 
-    const [error,setError] = useState(false);
+    const [error, setError] = useState(false);
 
     const [message, setMessage] = useState("");
 
@@ -32,33 +30,27 @@ export default function AddSev(props) {
 
     const handleTitle = () => {
         if (title.length === 0) {
-            setFlag(1)
             setTitleError("Please provide a Title")
         }
         else {
-            setFlag(0)
             setTitleError('')
         }
     }
 
     const handleTicketNumber = () => {
         if (ticketNo.length === 0) {
-            setFlag(1)
             setTicketError("Please provide a Ticket Number or write N/A")
         }
         else {
-            setFlag(0)
             setTicketError("")
         }
     }
 
     const handleMi = () => {
         if (miNo.length === 0) {
-            setFlag(1)
             setMiError("Please provide a MI or write N/A")
         }
         else {
-            setFlag(0)
             setMiError("")
         }
     }
@@ -70,11 +62,9 @@ export default function AddSev(props) {
         // <option selected value="none">Select the type of Application</option>
 
         if (appType.length === 0 || appType === "none") {
-            setFlag(1)
             setAppTypeError("Please provide a App type")
         }
         else {
-            setFlag(0)
             setAppTypeError("")
         }
     }
@@ -84,29 +74,28 @@ export default function AddSev(props) {
         // again change it back to Select the type of application the value of tickType returned will be none() as given in the option.
         // <option selected value="none">Select the type of Ticket</option>
         if (tickType.length === 0 || tickType === "none") {
-            setFlag(1)
             setTicketTypeError("Please provide a Ticket Type")
         }
         else {
-            setFlag(0)
             setTicketTypeError("")
         }
     }
 
     const handleTimeOccured = () => {
         if (timeOccured.length === 0) {
-            setFlag(1)
             setDateOccurError("Please provide the date sev occured")
         }
         else {
-            setFlag(0)
             setDateOccurError("")
         }
     }
 
+
+
+    /******************** The checking function is called by the submit button onClick Event ******************************/
     const checking = () => {
 
-        window.scrollTo(0,0); // Scroll to the top
+        window.scrollTo(0, 0); // Scroll to the top
 
         // I kept all these functions inside submit but I have to press 2 times submit button. So I need to make a separate function
         // to execute the function when submit button is clicked and if all ok the flag will be 0 and submit will work.
@@ -160,9 +149,13 @@ export default function AddSev(props) {
         }
     }
 
+
+
+    /*************** The submit function is called by the omSubmit event of form ***************/
+
     const submit = (e) => {
 
-        if (titleError==="" && ticketError===""  && miError===""  && appTypeError==="" && ticketTypeError===""  && dateOccurError===""  && flag===0) { //flag will be zero only when there is no validation error
+        if (titleError === "" && ticketError === "" && miError === "" && appTypeError === "" && ticketTypeError === "" && dateOccurError === "") { //flag will be zero only when there is no validation error
 
             saveTicket();
         }
@@ -176,7 +169,7 @@ export default function AddSev(props) {
             <div className="container my-5 ">
                 <div className="row ">
 
-                    {loading && <SaveSevSpinner/>}
+                    {loading && <SaveSevSpinner />}
 
                     <div className="col-md-8 m-auto ">
 
@@ -188,12 +181,12 @@ export default function AddSev(props) {
                         </div>}
 
 
-                        
+
                         {/* Alert Message for any error */}
                         {error && <div className="alert alert-danger text-center" role="alert">
                             {message}
                         </div>}
-                        
+
 
                         <form onSubmit={submit}>
                             <div className="card p-4" style={props.cardColor}>
