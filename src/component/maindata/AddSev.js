@@ -33,7 +33,7 @@ export default function AddSev(props) {
     const handleTitle = () => {
         if (title.length === 0) {
             setFlag(1)
-            setTitleError("Please provide a Ticket Number")
+            setTitleError("Please provide a Title")
         }
         else {
             setFlag(0)
@@ -162,7 +162,7 @@ export default function AddSev(props) {
 
     const submit = (e) => {
 
-        if (flag === 0) { //flag will be zero only when there is no validation error
+        if (titleError==="" && ticketError===""  && miError===""  && appTypeError==="" && ticketTypeError===""  && dateOccurError===""  && flag===0) { //flag will be zero only when there is no validation error
 
             saveTicket();
         }
@@ -184,7 +184,7 @@ export default function AddSev(props) {
 
                         {/* Save Message */}
                         {save && <div className="alert alert-success text-center" role="alert">
-                            Saved Successfully!!
+                            <b>Saved Successfully!!</b>
                         </div>}
 
 

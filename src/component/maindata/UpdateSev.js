@@ -112,8 +112,9 @@ export default function AddSev(props) {
 
         window.scrollTo(0, 0); // Scroll to the top
 
-        // I kept all these functions inside submit but I have to press 2 times submit button. So I need to make a separate function
-        // to execute the function when submit button is clicked and if all ok the flag will be 0 and submit will work.
+        // I kept all these functions inside submit but if I do that I have to press 2 times submit button. So I need to make a 
+        // separate function to execute the function when submit button is clicked and if all ok the flag will be 0 and submit 
+        // will work.
         handleTitle();
         handleTicketNumber();
         handleMi();
@@ -166,7 +167,7 @@ export default function AddSev(props) {
 
     const submit = (e) => {
 
-        if (flag === 0) {
+        if (titleError==="" && ticketError===""  && miError===""  && appTypeError==="" && ticketTypeError===""  && dateOccurError===""  &&flag === 0) {
 
             updateTicket();
         }
