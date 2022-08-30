@@ -211,7 +211,7 @@ export default function AddSev(props) {
 
 
     }, // eslint-disable-next-line
-    [])
+        [])
 
     return (
         <>
@@ -267,9 +267,11 @@ export default function AddSev(props) {
                                         <option value="QXEFB">QXEFB</option>
                                         <option value="S4A">S4A</option>
                                         <option value="VisOps">VisOps</option>
+                                        <option value="VisOps DB">VisOps DB</option>
                                         <option value="WAM">WAM</option>
                                         <option value="Weather">Weather</option>
                                         <option value="WebSendTimes">WebSendTimes</option>
+                                        <option value="Related to other Team">Related to other Team</option>
                                     </select>
                                     <b className="text-danger">{appTypeError}</b>
                                 </div>
