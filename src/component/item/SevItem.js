@@ -89,11 +89,8 @@ export default function SevItem(props) {
 
 
                         {/* If link is provided then only the button will be active otherwise disabled */}
-                        {props.data.link.length === 0 ?
-                            <a target="_blank" rel="noreferrer" href={props.data.link} className="btn my-2 disabled" style={{ borderRadius: "10px", color: "white", backgroundColor: "#A569BD" }}>Check Details</a>
-                            :
-                            <a target="_blank" rel="noreferrer" href={props.data.link} className="btn my-2" style={{ borderRadius: "10px", color: "white", backgroundColor: "#A569BD" }}>Check Details</a>
-                        }
+
+                        <a target="_blank" rel="noreferrer" href={props.data.link} className={`btn my-2 ${props.data.link.length === 0 ? 'disabled' : ''}`} style={{ borderRadius: "10px", color: "white", backgroundColor: "#A569BD" }}>Check Details</a>
 
                     </div>
 
