@@ -53,7 +53,7 @@ function App() {
   }
 
   const [status, setStatus] = useState(false)
-  const [classname, seClassName] = useState('menulists2');
+  const [classname, seClassName] = useState('menulists2'); // Initially the menubar wil be kept as display: none so that it is not visible
 
   const show = () => {
     if (status === false) {
@@ -70,6 +70,13 @@ function App() {
   return (
 
     <>
+      {/* Click Outside anywhere and the menu will go. Basiaclly on clicking the backdrop the show function is executed and the 
+      menu goes away */}
+
+      {status && <div id="backdrop" onClick={show}>
+
+      </div>}
+
 
       <BrowserRouter>
         <Navbar toggleStyle={toggleStyle} lightToggle={lightToggle} darkToggle={darkToggle} toggle={toggle} navbar={navbar} toggling={toggling} />
@@ -90,7 +97,7 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      <div onClick={show} style={{ cursor: "pointer", position: "fixed", bottom: "10px", left: "5px", zIndex: "2", backgroundColor: "#ff7782", padding: "0px", borderRadius: "10px" }}>
+      <div onClick={show} style={{ cursor: "pointer", position: "fixed", bottom: "10px", left: "5px", zIndex: "7", backgroundColor: "#ff7782", padding: "0px", borderRadius: "10px" }}>
         {!status && <span className="material-symbols-outlined m-2">
           arrow_forward_ios
         </span>}
