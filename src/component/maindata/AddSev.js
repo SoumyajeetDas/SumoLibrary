@@ -223,6 +223,7 @@ export default function AddSev(props) {
                                         <option value="Weather">Weather</option>
                                         <option value="WebSendTimes">WebSendTimes</option>
                                         <option value="Related to other Team">Related to other Team</option>
+                                        <option value="Related to other Team">Multiple System Down</option>
                                     </select>
                                     <b className="text-danger">{appTypeError}</b>
                                 </div>
