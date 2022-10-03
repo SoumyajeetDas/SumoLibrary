@@ -127,7 +127,6 @@ export default function UpdateSev(props) {
 
 
         if (!formValid) {
-            console.log("Not Valid")
             return;
         }
 

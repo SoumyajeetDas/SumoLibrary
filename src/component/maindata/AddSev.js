@@ -117,7 +117,6 @@ export default function AddSev(props) {
 
 
         if(!formValid){
-            console.log("Not Valid")
             return;
         }
         
