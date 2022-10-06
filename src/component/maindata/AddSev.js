@@ -182,8 +182,9 @@ export default function AddSev(props) {
                                         <option value="WAM">WAM</option>
                                         <option value="Weather">Weather</option>
                                         <option value="WebSendTimes">WebSendTimes</option>
+                                        <option value="FlightEventsPublisherSvc">FlightEventsPublisherSvc</option>
                                         <option value="Related to other Team">Related to other Team</option>
-                                        <option value="Related to other Team">Multiple System Down</option>
+                                        <option value="Multiple System Down">Multiple System Down</option>
                                     </select>
                                     {!formValididty.appType && <b className="text-danger">Please enter the App Type</b>}
                                 </div>
