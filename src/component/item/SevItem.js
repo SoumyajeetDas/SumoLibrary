@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion';
 
 export default function SevItem(props) {
 
@@ -9,6 +10,7 @@ export default function SevItem(props) {
         let res = await fetch(`https://flightops.vercel.app/api/v1/fops/sevs/${id}`, {
             method: "DELETE"
         });
+
 
         if (res.status === 200) {
 
@@ -32,7 +34,9 @@ export default function SevItem(props) {
 
     return (
         <>
-            <div className="card">
+            <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="card">
 
                 <div className="card-body" style={props.cardColor}>
                     <h1 id="card-title" className="card-title text-center mb-4">{props.data.title}</h1>
@@ -96,7 +100,7 @@ export default function SevItem(props) {
 
 
                 </div>
-            </div>
+            </motion.div>
         </>
     )
 }

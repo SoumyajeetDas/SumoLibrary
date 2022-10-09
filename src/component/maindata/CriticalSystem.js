@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import CriticalSystemLink from '../item/CriticalSystemLinks.js'
 import Spinner from './Spinner.js';
+import { motion } from 'framer-motion'
 
 export default function CentralOpsContent(props) {
 
@@ -76,9 +77,14 @@ export default function CentralOpsContent(props) {
             :
 
             query.map((data) =>
-              <div key={data.name} className="col-md-4 my-5">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+
+                key={data.name} className="col-md-4 my-5">
                 <CriticalSystemLink data={data} cardColor={props.cardColor} />
-              </div>
+              </motion.div>
             )}
 
         </div>

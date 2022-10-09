@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import SevItem from '../item/SevItem';
 import Spinner from '../maindata/Spinner';
-import { useNavigate } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion'
 
 export default function Sev(props) {
 
@@ -61,9 +61,13 @@ export default function Sev(props) {
 
 
                     {/* On deleting any sev the deleted successfully option is showing */}
-                    {show && <div className="alert alert-danger deletealert text-center" role="alert">
+                    {show && <motion.div
+                        initial={{ x: 2000, opacity: 0 }}
+                        animate={{ x: 1110, opacity: 1 }}
+                        transition={{ type:"spring", stiffness:100}}
+                        className="alert alert-danger deletealert text-center" role="alert">
                         <b>Deleted MI {miNo} Successfully!!</b>
-                    </div>}
+                    </motion.div>}
 
 
 
@@ -87,10 +91,15 @@ export default function Sev(props) {
                             :
 
                             query.map((data) =>
-                    
-                                    <div key={data._id} className="col-md-8 m-auto my-5">
-                                        <SevItem FetchData={FetchData} showDelAlert={showDelAlert} data={data} cardColor={props.cardColor} />
-                                    </div>
+
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 1 }}
+
+                                    key={data._id} className="col-md-8 m-auto my-5">
+                                    <SevItem FetchData={FetchData} showDelAlert={showDelAlert} data={data} cardColor={props.cardColor} />
+                                </motion.div>
 
                             )
                     }
@@ -100,19 +109,26 @@ export default function Sev(props) {
 
 
             {/* Adding the Add Ticket Button at the right side */}
-            <button className="addTicket" onClick={() => navigate("/addsev")}>
+            <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="addTicket" onClick={() => navigate("/addsev")}>
                 <span className="material-symbols-outlined">
                     add
                 </span>
                 <span>Add Ticket</span>
-            </button>
+            </motion.button>
 
-            <button className="btnStat" onClick={() => navigate("/stat")}>
+            <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+
+                className="btnStat" onClick={() => navigate("/stat")}>
                 <span className="material-symbols-rounded">
                     monitoring
                 </span>
                 <span>Check Graph</span>
-            </button>
+            </motion.button>
 
 
         </>

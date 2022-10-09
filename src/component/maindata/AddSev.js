@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import SaveSevSpinner from './SaveSevSpinner';
+import { motion } from 'framer-motion'
 
 const isEmpty = value => value.trim() === '';
 
@@ -51,14 +52,14 @@ export default function AddSev(props) {
         setError(false);
 
         let data = {
-            title : formData.title,
+            title: formData.title,
             tickNos: formData.ticketNo,
             miNos: formData.miNo,
             applications: formData.appType,
             ticketType: formData.tickType,
-            timeOccured : formData.timeOccured,
-            description : formData.description,
-            link : formData.link
+            timeOccured: formData.timeOccured,
+            description: formData.description,
+            link: formData.link
         }
 
         let res = await fetch('https://flightops.vercel.app/api/v1/fops/sevs', {
@@ -116,17 +117,22 @@ export default function AddSev(props) {
         const formValid = isTitleValid && isTicketNoValid && isMiNoValid && isAppTypeValid && isTickTypeValid && isTimeOccuredValid
 
 
-        if(!formValid){
+        if (!formValid) {
             return;
         }
-        
+
         saveTicket();
     }
 
 
     return (
         <>
-            <div className="container my-5 ">
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+
+                className="container my-5 ">
                 <div className="row ">
 
                     {loading && <SaveSevSpinner />}
@@ -219,7 +225,7 @@ export default function AddSev(props) {
                     </div>
 
                 </div>
-            </div>
+            </motion.div>
         </>
 
     )

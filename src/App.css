@@ -115,64 +115,7 @@ body {
   font-family: 'Libre Bodoni', serif;
   font-family: 'Source Serif Pro', serif;
   z-index: 7;
-  animation-name: slide;
-  animation-duration: 0.4s;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  font-size: 17px;
-  text-decoration: none;
 }
-
-@keyframes slide {
-  from {
-    left: -10%
-  }
-
-  to {
-    left: 5px;
-  }
-}
-
-/* .menulists a{
-  text-decoration: none;
-  color:white;
-} */
-
-
-
-.menulists1 {
-  position: fixed;
-  left: 5px;
-  bottom: 55px;
-  background-color: rgb(255, 119, 130, 0.8);
-  border-radius: 10px;
-  padding: 10px;
-  cursor: pointer;
-  color: white;
-  font-family: 'Libre Bodoni', serif;
-  font-family: 'Source Serif Pro', serif;
-  z-index: 7;
-  animation-name: slide1;
-  animation-duration: 1s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-  font-size: 17px;
-}
-
-@keyframes slide1 {
-  from {
-    left: 5px
-  }
-
-  to {
-    left: -100%;
-  }
-}
-
-/* .menulists1 a{
-  text-decoration: none;
-  color:white;
-} */
 
 .menulists2 {
   display: none;
@@ -212,7 +155,7 @@ body {
 .addTicket{
   position: fixed;
   bottom: 120px;
-  right: 5px; 
+  right: 9px; 
   z-index:2,;
   border: 3px dashed #7388ec;
   color: #7388ec;
@@ -227,7 +170,7 @@ body {
 .btnStat{
   position: fixed;
   bottom: 50px;
-  right: 5px; 
+  right: 9px; 
   z-index:2,;
   border: 3px dashed #7388ec;
   color: #7388ec;
@@ -268,10 +211,7 @@ body {
   width:300px;
   top:50vh;
   z-index: 2;
-  animation-name: delslide;
-  animation-duration: 0.4s;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
+  
 }
 
 @keyframes delslide {

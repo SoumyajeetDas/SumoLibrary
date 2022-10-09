@@ -1,17 +1,26 @@
 import React from 'react'
+import { motion } from 'framer-motion'; 
 
 function Navbar(props) {
 
     return (
         <>
-            <nav className={`navbar navbar-expand-lg navbar-${props.toggling}`} style={props.navbar}>
+            <motion.nav 
+            initial={{y:-250}}
+            animate={{y:0}}
+            transition={{type: 'spring', stiffness:200}}
+            className={`navbar navbar-expand-lg navbar-${props.toggling}`} style={props.navbar}>
                 <div className="container-fluid">
                     <a id="brandname" className="navbar-brand" href="/">
                         <img src="travel.png" className="me-2" alt="loading...." width={35} height={35} style={{ display: "inline" }}></img>
                         <h3 id="brandnaming" style={{ display: "inline" }}>FlightOps Library</h3>
                     </a>
 
-                    <div id="modes" className="rounded-pill p-0" style={props.toggleStyle}>
+                    <motion.div
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                     
+                    id="modes" className="rounded-pill p-0" style={props.toggleStyle}>
                         <span className="material-symbols-outlined me-2 rounded-pill p-1" style={props.lightToggle} onClick={() => props.toggle("light")}>
                             light_mode
                         </span>
@@ -19,10 +28,10 @@ function Navbar(props) {
                             dark_mode
                         </span>
 
-                    </div>
+                    </motion.div>
 
                 </div>
-            </nav>
+            </motion.nav>
         </>
     )
 

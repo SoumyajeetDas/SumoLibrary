@@ -15,6 +15,7 @@ import AddSev from './component/maindata/AddSev';
 import UpdateSev from './component/maindata/UpdateSev';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Stat from './component/maindata/Stat';
+import { motion } from 'framer-motion'
 
 
 
@@ -54,15 +55,25 @@ function App() {
 
   const [status, setStatus] = useState(false)
   const [classname, seClassName] = useState('menulists2'); // Initially the menubar wil be kept as display: none so that it is not visible
+  const [variant, setVariant] = useState({})
 
   const show = () => {
     if (status === false) {
+      setVariant({
+        variantName: "MenuVaraints1",
+        initial: "hidden",
+        animate: "visible"
+      })
       setStatus(true);
       seClassName("menulists")
     }
     else {
+      setVariant({
+        variantName: "MenuVaraints2",
+        initial: "visible",
+        animate: "hidden"
+      })
       setStatus(false);
-      seClassName("menulists1");
     }
   }
 
@@ -80,31 +91,35 @@ function App() {
 
       <BrowserRouter>
         <Navbar toggleStyle={toggleStyle} lightToggle={lightToggle} darkToggle={darkToggle} toggle={toggle} navbar={navbar} toggling={toggling} />
-        <Menus classname={classname} show={show} />
+        <Menus classname={classname} show={show} variant={variant} />
         <Routes>
           <Route exact path="/" element={<Content cardColor={cardColor} />} />
           <Route exact path="/triage" element={<Triage cardColor={cardColor} />} />
           <Route exact path="/opscentral" element={<OpsCentral cardColor={cardColor} />} />
           <Route exact path="/criticalsystem" element={<Criticalsystem cardColor={cardColor} />} />
-          <Route exact path="/sql" element={ <SqlData cardColor={cardColor} />} />
-          <Route exact path="/paths" element={ <PathData cardColor={cardColor} />} />
-          <Route exact path="/appinsight" element={ <AppInsight cardColor={cardColor} />} />
-          <Route exact path="/sumo" element={ <Library cardColor={cardColor} />} />
-          <Route exact path="/sev" element={ <Sev cardColor={cardColor} />} />
-          <Route exact path="/addsev" element={ <AddSev cardColor={cardColor} />} />
-          <Route exact path="/updatesev" element={ <UpdateSev cardColor={cardColor} />} />
-          <Route exact path="/stat" element={ <Stat/>} />
+          <Route exact path="/sql" element={<SqlData cardColor={cardColor} />} />
+          <Route exact path="/paths" element={<PathData cardColor={cardColor} />} />
+          <Route exact path="/appinsight" element={<AppInsight cardColor={cardColor} />} />
+          <Route exact path="/sumo" element={<Library cardColor={cardColor} />} />
+          <Route exact path="/sev" element={<Sev cardColor={cardColor} />} />
+          <Route exact path="/addsev" element={<AddSev cardColor={cardColor} />} />
+          <Route exact path="/updatesev" element={<UpdateSev cardColor={cardColor} />} />
+          <Route exact path="/stat" element={<Stat />} />
         </Routes>
       </BrowserRouter>
 
-      <div onClick={show} style={{ cursor: "pointer", position: "fixed", bottom: "10px", left: "5px", zIndex: "7", backgroundColor: "#ff7782", padding: "0px", borderRadius: "10px" }}>
+      <motion.div
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+
+        onClick={show} style={{ cursor: "pointer", position: "fixed", bottom: "10px", left: "5px", zIndex: "7", backgroundColor: "#ff7782", padding: "0px", borderRadius: "10px" }}>
         {!status && <span className="material-symbols-outlined m-2">
           arrow_forward_ios
         </span>}
         {status && <span className="material-symbols-outlined m-2">
           close
         </span>}
-      </div>
+      </motion.div>
 
 
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SaveSevSpinner from './SaveSevSpinner';
 import { useLocation } from "react-router-dom";
+import { motion } from 'framer-motion'
 
 
 const isEmpty = value => value.trim() === '';
@@ -160,7 +161,12 @@ export default function UpdateSev(props) {
 
     return (
         <>
-            <div className="container my-5 ">
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+                
+                className="container my-5 ">
                 <div className="row ">
 
                     {loading && <SaveSevSpinner />}
@@ -253,7 +259,7 @@ export default function UpdateSev(props) {
                     </div>
 
                 </div>
-            </div>
+            </motion.div>
         </>
 
     )

@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import LinkItems from '../item/LinkItems';
 import Spinner from './Spinner';
+import { motion } from 'framer-motion'
 
 
 export default function TriageContent(props) {
@@ -23,7 +24,7 @@ export default function TriageContent(props) {
     // );
 
 
-    
+
     /*****************************DB System*****************************/
 
 
@@ -65,7 +66,7 @@ export default function TriageContent(props) {
         <div className="row">
 
 
-          {loading && <Spinner/>}
+          {loading && <Spinner />}
 
 
 
@@ -81,9 +82,14 @@ export default function TriageContent(props) {
             :
 
             query.map((data) =>
-              <div key={data.name} className="col-md-4 my-5">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+                
+                key={data.name} className="col-md-4 my-5">
                 <LinkItems data={data} cardColor={props.cardColor} />
-              </div>
+              </motion.div>
             )}
 
         </div>

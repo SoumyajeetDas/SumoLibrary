@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import PathItem from '../item/PathItem.js'
 import Spinner from './Spinner.js';
+import { motion } from 'framer-motion';
 
 
 export default function SqlContent(props) {
@@ -95,9 +96,14 @@ export default function SqlContent(props) {
 
             query.map((data) =>
 
-              <div key={data.name} className="col-12 my-5">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+
+                key={data.name} className="col-12 my-5">
                 <PathItem key={data.name} data={data} copyQuery={copyQuery} cardColor={props.cardColor} />
-              </div>
+              </motion.div>
             )}
         </div>
       </div>

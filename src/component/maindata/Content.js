@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import QueryItem from '../item/QueryItem'
 import Spinner from './Spinner.js';
+import { motion } from 'framer-motion';
+
 
 
 export default function Content(props) {
@@ -88,9 +90,13 @@ export default function Content(props) {
             :
 
             query.map((data) =>
-              <div key={data.name} className="col-12 my-5">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+                key={data.name} className="col-12 my-5">
                 <QueryItem data={data} copyQuery={copyQuery} cardColor={props.cardColor} />
-              </div>
+              </motion.div>
             )}
 
         </div>
