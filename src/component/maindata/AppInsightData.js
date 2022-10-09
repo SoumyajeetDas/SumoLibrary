@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PathItem from '../item/PathItem.js'
 import Spinner from './Spinner';
+import { motion } from 'framer-motion';
 
 
 export default function AppInsightContent(props) {
@@ -73,7 +74,7 @@ export default function AppInsightContent(props) {
         <div className="row">
 
 
-        {loading && <Spinner/>}
+          {loading && <Spinner />}
 
 
           {/* First check if the array is empty or not and as well check if the status is 200 or not. If the array is emplty and the 
@@ -87,9 +88,14 @@ export default function AppInsightContent(props) {
             :
 
             query.map((data) =>
-              <div key={data.name} className="col-12 my-5">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+
+                key={data.name} className="col-12 my-5">
                 <PathItem note={data.note} data={data} copyQuery={copyQuery} cardColor={props.cardColor} />
-              </div>
+              </motion.div>
             )}
 
 
