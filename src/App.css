@@ -127,6 +127,7 @@ body {
   align-items: center;
   padding: 0.9rem;
   transition: all 0.3s;
+  margin:7px 0;
 }
 
 .menuitems:hover {
@@ -135,6 +136,17 @@ body {
   border-radius: 10px;
   color: #7d8da1;
 
+}
+
+.menuitems-active {
+  display: flex;
+  justify-content: center;
+  background-color: #FFAEAE;
+  border-radius: 10px;
+  color: #7d8da1;
+  align-items: center;
+  padding: 0.9rem;
+  margin:7px 0;
 }
 
 
@@ -152,66 +164,73 @@ body {
   color: #FFAEAE;
 }
 
-.addTicket{
+.addTicket {
   position: fixed;
   bottom: 120px;
-  right: 9px; 
-  z-index:2,;
+  right: 9px;
+  z-index: 2, ;
   border: 3px dashed #7388ec;
   color: #7388ec;
-  border-radius: 15px; 
-  background-color: transparent; 
+  border-radius: 15px;
+  background-color: transparent;
   padding: 0.7rem;
   display: flex;
-  justify-content:space-between;
-  align-items:center;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.btnStat{
+.btnStat {
   position: fixed;
   bottom: 50px;
-  right: 9px; 
-  z-index:2,;
+  right: 9px;
+  z-index: 2, ;
   border: 3px dashed #7388ec;
   color: #7388ec;
-  border-radius: 15px; 
-  background-color: transparent; 
+  border-radius: 15px;
+  background-color: transparent;
   padding: 0.7rem;
   display: flex;
-  justify-content:space-between;
-  align-items:center;
+  justify-content: space-between;
+  align-items: center;
 }
 
 
 
-.formHeading{
+.formHeading {
   color: #7388ec;
   font-family: 'Source Serif Pro', serif;
 }
 
-.form-label{
-  color:#FFC300;
+.form-label {
+  color: #FFC300;
   font-weight: bold;
-  font-size:1.2rem;
+  font-size: 1.2rem;
   font-family: 'Libre Bodoni', serif;
   /* font-family: 'Source Serif Pro', serif; */
 }
 
-#title, #ticketNo, #miNo, #appType, #tickType, #timeOccured, #description, #link{
+#title,
+#ticketNo,
+#miNo,
+#appType,
+#tickType,
+#timeOccured,
+#description,
+#link {
   color: teal;
   background-color: transparent;
   box-shadow: 4px 10px 10px 2px rgb(132, 139, 200, 0.18);
   font-style: oblique;
-  border:none;
+  border: none;
 }
 
 
-.deletealert{
-  position:fixed;
-  width:300px;
-  top:50vh;
+.deletealert {
+  position: fixed;
+  width: 300px;
+  top: 50vh;
   z-index: 2;
-  
+
 }
 
 @keyframes delslide {
@@ -224,7 +243,7 @@ body {
   }
 }
 
-#stat{
+#stat {
   box-shadow: 4px 10px 10px 2px rgb(132, 139, 200, 0.18);
 }
 
