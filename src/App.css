@@ -127,7 +127,7 @@ body {
   align-items: center;
   padding: 0.7rem;
   transition: all 0.3s;
-  margin:7px 0;
+  margin: 7px 0;
 }
 
 .menuitems:hover {
@@ -146,7 +146,7 @@ body {
   color: #7d8da1;
   align-items: center;
   padding: 0.7rem;
-  margin:7px 0;
+  margin: 7px 0;
 }
 
 
@@ -255,4 +255,11 @@ body {
   height: 100vh;
   z-index: 5;
   background: transparent;
+}
+
+
+#not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

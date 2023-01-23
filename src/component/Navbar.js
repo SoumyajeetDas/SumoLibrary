@@ -12,7 +12,7 @@ function Navbar(props) {
             className={`navbar navbar-expand-lg navbar-${props.toggling}`} style={props.navbar}>
                 <div className="container-fluid">
                     <a id="brandname" className="navbar-brand" href="/">
-                        <img src="travel.png" className="me-2" alt="loading...." width={35} height={35} style={{ display: "inline" }}></img>
+                        <img src="/travel.png" className="me-2" alt="loading...." width={35} height={35} style={{ display: "inline" }}></img>
                         <h3 id="brandnaming" style={{ display: "inline" }}>FlightOps Library</h3>
                     </a>
 

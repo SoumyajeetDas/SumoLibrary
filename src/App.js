@@ -16,6 +16,7 @@ import UpdateSev from './component/maindata/UpdateSev';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Stat from './component/maindata/Stat';
 import { motion } from 'framer-motion'
+import Page404 from './component/NoPage/Page404';
 
 
 
@@ -105,6 +106,7 @@ function App() {
           <Route exact path="/addsev" element={<AddSev cardColor={cardColor} />} />
           <Route exact path="/updatesev" element={<UpdateSev cardColor={cardColor} />} />
           <Route exact path="/stat" element={<Stat />} />
+          <Route exact path="/*" element={<Page404/>} />
         </Routes>
       </BrowserRouter>
 
