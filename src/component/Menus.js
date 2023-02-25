@@ -76,7 +76,7 @@ export default function Menus(props) {
 
             className={props.classname}>
 
-            <CustomLink symbols="plagiarism" value="Traige" to="/triage"/>
+            <CustomLink symbols="plagiarism" value="Triage" to="/triage"/>
             
 
             <CustomLink symbols="elderly_woman" value="Ad. Sumo" to="/"/>
