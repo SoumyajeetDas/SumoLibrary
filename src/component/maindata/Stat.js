@@ -1,35 +1,16 @@
-import { useState } from 'react';
 import { Bar } from 'react-chartjs-2'
 
 // eslint-disable-next-line
 import { Chart as ChartJS } from "chart.js/auto" // This import is imp for the graph to work evn if it is not used anywhere in the
-                                                // code.
+import useDBData from '../../Hooks/useDBData';
+// code.
 
 
 export default function Stat() {
 
+    // useDBData is a Custom Hook
+    const [query, apiStatus] = useDBData('https://flightops.vercel.app/api/v1/fops/sevs/stats');
 
-    const [query, setQuery] = useState([]);
-    const [apiStatus, setApiStatus] = useState(200);
-
-
-
-    const FetchData = async () => {
-        let data = await fetch('https://flightops.vercel.app/api/v1/fops/sevs/stats');
-
-        if (data.status === 200) {
-            let dataJson = await data.json();
-
-            setQuery(dataJson.data.stats)
-        }
-        else {
-            setApiStatus(data.status)
-        }
-    }
-
-    useState(() => {
-        FetchData();
-    }, []);
     return (
 
         <div className="container my-5">
